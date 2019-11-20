@@ -4,7 +4,7 @@ class Index extends Component {
     
     render() { 
         return ( 
-            <button class='signin-button'>
+            <button className='signin-button'>
                 Sign In
             </button>
          );

@@ -1,21 +1,22 @@
 .logo-grey{
   color: grey;
   font-size: 17px;
-  margin: 10px 50px;
+  margin: 15px 50px;
+  position: fixed;
 }
 
 .hero-phone-chat{
   width: 300px;
-  margin: 100px 20%;
+  margin: 150px 5%;
 }
 
 .hero-aside{
-  width: 40%;
-  background-color: lightgreen;
+  width: 65%;
+  background-color: rgb(128, 7, 165);
   height: 100vh;
   position: fixed;
   top:0px;
-  left:60%
+  left:35%
 }
 
 .signin-button{
@@ -26,4 +27,28 @@
   float: right;
   margin: 20px;
   color: dimgrey;
+  transition: 0.5s;
+  outline: none;
+  z-index: +100;
+}
+
+.signin-button:hover{
+  background: rgb(236, 236, 236);
+}
+.rounded-box{
+  background-color: rgb(255, 255, 255);
+  color: grey;
+  border-radius: 5px;
+  width: 300px;
+  padding: 20px 10px;
+  margin: 50px auto;
+  font-size: 20px;
+  box-shadow: 1px 1px 5px grey
+}
+
+.transparent-bg-box{
+  background: rgba(137, 43, 226, 0.198);
+  width: 100px;
+  height: 100px;
+  z-index: -1;
 }
