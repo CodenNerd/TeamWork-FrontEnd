@@ -3,3 +3,27 @@
   font-size: 17px;
   margin: 10px 50px;
 }
+
+.hero-phone-chat{
+  width: 300px;
+  margin: 100px 20%;
+}
+
+.hero-aside{
+  width: 40%;
+  background-color: lightgreen;
+  height: 100vh;
+  position: fixed;
+  top:0px;
+  left:60%
+}
+
+.signin-button{
+  background: white;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 7px;
+  float: right;
+  margin: 20px;
+  color: dimgrey;
+}
