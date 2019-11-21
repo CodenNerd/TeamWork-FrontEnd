@@ -19,7 +19,7 @@
 
 .hero-phone-chat{
   width: 300px;
-  margin: 150px 5%;
+  margin: 100px 5%;
 }
 
 .hero-aside{
@@ -28,7 +28,8 @@
   height: 100vh;
   position: fixed;
   top:0px;
-  left:35%
+  left:35%;
+  box-shadow: -10px 0px 30px grey;
 }
 
 .signin-button{
@@ -122,7 +123,9 @@
   width: 45%;
   margin: 10px auto;
 }
-
+footer{
+  color: purple;
+}
 @media only screen and (max-width: 768px){
 .hero-aside{
   width: 100%;
