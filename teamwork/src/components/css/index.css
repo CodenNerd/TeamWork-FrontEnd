@@ -1,4 +1,4 @@
-*{
+body, #teamwork-svg, .signin-text{
     transition: 0.5s;
     animation: swipe 1.5s ease-out forwards;
   }
@@ -18,7 +18,6 @@
   .logo-grey>b{
       -webkit-text-stroke: 1px purple;
       color: white;
-
   }
   
   .hero-phone-chat{

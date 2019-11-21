@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 @font-face{
     font-family: Poppins;
     src: url('./../fonts/Poppins-SemiBold.otf');
@@ -9,5 +13,74 @@
     text-align: center;
     color: transparent;
     -webkit-text-stroke: 1px white;
+}
+
+.signin-input{
+    width: 50%;
+    height: 50px;
+    position: relative;
+    margin: 25px auto;
+    color: white;
+    overflow: hidden;
+}
+.signin-input input{
+    width: 100%;
+    height: 100%;
+    color: lightgrey;
+    font-style: italic;;
+    padding-top: 20px;
+    border: none;
+    background: transparent;
+    outline: none;
+}
+.signin-input label{
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid lightgrey;
 
 }
+.signin-input label::after{
+    content: '';
+    position: absolute;
+    left:0px;
+    bottom: -1px;
+    height: 100%;
+    width: 100%;
+    border-bottom: 1px solid white;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+
+}
+.signin-input label span{
+    position: absolute;
+    bottom: 5px;
+    left:0px;
+    transition: transform 0.3s ease;
+}
+.signin-input input:focus + label span, .signin-input input:valid + label span {
+    transform: translateY(-130%);
+
+}
+.signin-input input:focus + label::after, 
+.signin-input input:valid + label::after {
+    transform: translateX(0%);
+}
+.si-btn{
+    background: white;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 7px;
+    display: block;
+    margin: 50px auto;
+    color: dimgrey;
+    transition: 0.5s;
+    outline: none;
+    z-index: +1;
+  }
+  .si-btn:hover{
+      box-shadow: 1px 1px 50px white;
+  } 

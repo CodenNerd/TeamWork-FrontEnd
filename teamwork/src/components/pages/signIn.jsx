@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import RandomizeBoxes from './../RandomizeBoxes';
 import Logo from './../teamwork-logo-grey';
 import './../css/signin.css';
+import SignInForm from './../SignInForm'
 
 class SignIn extends Component {
 
@@ -13,6 +14,8 @@ class SignIn extends Component {
                     <RandomizeBoxes />
 
                     <h1 className="signin-text">Sign In</h1>
+
+                    <SignInForm/>
                 </aside>
             </div>
         );
