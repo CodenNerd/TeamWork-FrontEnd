@@ -1,0 +1,13 @@
+@font-face{
+    font-family: Poppins;
+    src: url('./../fonts/Poppins-SemiBold.otf');
+}
+.signin-text{
+    font-family: Poppins, sans-serif;
+    font-size: 70px;
+    font-weight: bolder;
+    text-align: center;
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RandomizeBoxes from './../RandomizeBoxes';
 import Logo from './../teamwork-logo-grey';
+import './../css/signin.css';
 
 class SignIn extends Component {
 
@@ -10,6 +11,8 @@ class SignIn extends Component {
                 <Logo/>
                 <aside className="hero-aside">
                     <RandomizeBoxes />
+
+                    <h1 className="signin-text">Sign In</h1>
                 </aside>
             </div>
         );

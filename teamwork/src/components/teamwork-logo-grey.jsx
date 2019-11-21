@@ -5,7 +5,7 @@ class Index extends Component {
     render() {
         return (
             <Link to="/">
-                <h1 className="logo-grey">TeamWork</h1>
+                <h1 className="logo-grey">Team<b>Work</b></h1>
             </Link>
         );
     }
