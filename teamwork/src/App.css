@@ -1,0 +1,140 @@
+*{
+  transition: 0.5s;
+  animation: swipe 1.5s ease-out forwards;
+}
+@keyframes swipe{
+  from{
+    transform: translate(-10px)
+  }
+}
+.logo-grey{
+  /* color: rgb(248, 84, 8); */
+  color: white;
+  font-size: 25px;
+  margin: 15px 50px;
+  position: fixed;
+  -webkit-text-stroke: 1px purple;
+
+}
+
+.hero-phone-chat{
+  width: 300px;
+  margin: 100px 5%;
+}
+
+.hero-aside{
+  width: 65%;
+  background-color: rgb(128, 7, 165);
+  height: 100vh;
+  position: fixed;
+  top:0px;
+  left:35%;
+  box-shadow: -10px 0px 30px grey;
+}
+
+.signin-button{
+  background: white;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 7px;
+  float: right;
+  margin: 20px;
+  color: dimgrey;
+  transition: 0.5s;
+  outline: none;
+  z-index: +100;
+}
+
+.signin-button:hover{
+  /* background: rgb(236, 236, 236); */
+  box-shadow: 200px 200px 255px 201px white;
+}
+.rounded-box{
+  background-color: rgb(255, 255, 255);
+  color: purple;
+  border-radius: 5px;
+  width: 300px;
+  padding: 20px 10px;
+  font-size: 20px;
+  box-shadow: 1px 1px 5px grey;
+  display: inline-block;
+}
+
+.transparent-bg-box{
+  background: rgba(137, 43, 226, 0.198);
+  width: 100px;
+  height: 100px;
+  z-index: -1;
+}
+
+.undraw{
+  z-index: +200;
+  background: #fff;
+  width: 70px;
+  height: 70px;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px grey;
+  margin: 5px 10px;
+}
+.undraw>img{
+  width: 100%;  
+}
+
+.undraw-rounded{
+  padding: 0px 10%; 
+}
+
+
+
+
+#teamwork-svg{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#teamwork-svg path:nth-child(1){
+  stroke-dasharray: 100px;
+}
+
+.hero-icons{
+  background: #fff;
+  width: 50%;
+  margin: 0px auto;
+  border-radius: 5px;
+}
+.hero-aside ul{
+  list-style-type: none;
+}
+.hero-aside ul li{
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+  border-right: 1px solid purple;
+  border-left: 1px solid purple;
+}
+.hero-aside i{
+  color: purple;
+}
+
+.dummylines-container{
+  width: 45%;
+  margin: 10px auto;
+}
+footer{
+  color: purple;
+}
+@media only screen and (max-width: 768px){
+.hero-aside{
+  width: 100%;
+  left: 0px;
+}
+#teamwork-svg{
+  transform: scale(0.75, 0.75) translateX(-62.5%)
+}
+.phone-aside{
+  display: none;
+}
+}
