@@ -12,8 +12,7 @@ body, #teamwork-svg, .signin-text{
     font-size: 25px;
     margin: 15px 50px;
     position: fixed;
-    
-  
+    z-index: +10;
   }
   .logo-grey>b{
       -webkit-text-stroke: 1px purple;
@@ -128,6 +127,9 @@ body, #teamwork-svg, .signin-text{
   }
   footer{
     color: purple;
+    position: fixed;
+    bottom: 2px;
+    left: 10px;
   }
   @media only screen and (max-width: 768px){
   .hero-aside{
