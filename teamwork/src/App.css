@@ -1,11 +1,19 @@
-
+*{
+  transition: 0.5s;
+  animation: swipe 1.5s ease-out forwards;
+}
+@keyframes swipe{
+  from{
+    transform: translate(-10px)
+  }
+}
 .logo-grey{
   /* color: rgb(248, 84, 8); */
   color: white;
   font-size: 25px;
   margin: 15px 50px;
   position: fixed;
-  -webkit-text-stroke: 1px black;
+  -webkit-text-stroke: 1px purple;
 
 }
 
@@ -37,7 +45,8 @@
 }
 
 .signin-button:hover{
-  background: rgb(236, 236, 236);
+  /* background: rgb(236, 236, 236); */
+  box-shadow: 200px 200px 255px 201px white;
 }
 .rounded-box{
   background-color: rgb(255, 255, 255);
@@ -45,7 +54,6 @@
   border-radius: 5px;
   width: 300px;
   padding: 20px 10px;
-  /* margin: 50px auto; */
   font-size: 20px;
   box-shadow: 1px 1px 5px grey;
   display: inline-block;
