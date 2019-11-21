@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Index extends Component {
+class SignInBtn extends Component {
     
     render() { 
         return ( 
@@ -11,4 +11,4 @@ class Index extends Component {
     }
 }
  
-export default Index;
+export default SignInBtn;

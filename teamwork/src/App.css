@@ -1,8 +1,12 @@
+
 .logo-grey{
-  color: grey;
-  font-size: 17px;
+  /* color: rgb(248, 84, 8); */
+  color: white;
+  font-size: 25px;
   margin: 15px 50px;
   position: fixed;
+  -webkit-text-stroke: 1px black;
+
 }
 
 .hero-phone-chat{
@@ -37,13 +41,14 @@
 }
 .rounded-box{
   background-color: rgb(255, 255, 255);
-  color: grey;
+  color: purple;
   border-radius: 5px;
   width: 300px;
   padding: 20px 10px;
   margin: 50px auto;
   font-size: 20px;
-  box-shadow: 1px 1px 5px grey
+  box-shadow: 1px 1px 5px grey;
+  display: inline-block;
 }
 
 .transparent-bg-box{
@@ -51,4 +56,62 @@
   width: 100px;
   height: 100px;
   z-index: -1;
+}
+
+.undraw{
+  z-index: +200;
+  background: #fff;
+  width: 70px;
+  height: 70px;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px grey;
+  margin: 50px 10px;
+}
+.undraw>img{
+  width: 100%;  
+}
+
+.undraw-rounded{
+  padding: 0px 10%; 
+}
+
+
+
+
+#teamwork-svg{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  stroke-dasharray: 10px;
+}
+
+#teamwork-svg path:nth-child(1){
+  stroke-dasharray: 100px;
+}
+
+.hero-icons{
+  background: #fff;
+  width: 50%;
+  margin: 0px auto;
+  border-radius: 5px;
+}
+.hero-aside ul{
+  list-style-type: none;
+}
+.hero-aside ul li{
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+  border-right: 1px solid purple;
+  border-left: 1px solid purple;
+}
+.hero-aside i{
+  color: purple;
+}
+
+.dummylines-container{
+  width: 45%;
+  margin: 10px auto;
 }

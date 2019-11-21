@@ -13,7 +13,7 @@ class Index extends Component {
     render() {
         return (
             <div className="rounded-box">
-                <div className={this.state.icon}>
+                <div>
                     {this.state.text}
                 </div>
             </div>
