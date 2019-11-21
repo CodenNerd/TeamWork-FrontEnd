@@ -48,7 +48,7 @@ class Index extends Component {
                         <LoginButton />
                         <br />
                         <div className="undraw-rounded">
-                            <UnDrawSVG src={articlesUndraw} /><RoundedBox text='Write Articles. Share Gifs. Chat. Have Fun!' />
+                            <UnDrawSVG src={articlesUndraw} /><RoundedBox text='Write A rticles. Share Gifs. Chat. Have Fun!' />
                         </div>
 
 
@@ -82,7 +82,7 @@ class Index extends Component {
 
                     </aside>
 
-                    <aside className>
+                    <aside className="phone-aside">
 
                         <img className='hero-phone-chat' src={HeroPhoneChat} alt="Hero Phone Chat" />
                     </aside>

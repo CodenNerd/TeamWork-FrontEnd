@@ -45,7 +45,7 @@
   border-radius: 5px;
   width: 300px;
   padding: 20px 10px;
-  margin: 50px auto;
+  /* margin: 50px auto; */
   font-size: 20px;
   box-shadow: 1px 1px 5px grey;
   display: inline-block;
@@ -67,7 +67,7 @@
   display: inline-block;
   border-radius: 5px;
   box-shadow: 1px 1px 5px grey;
-  margin: 50px 10px;
+  margin: 5px 10px;
 }
 .undraw>img{
   width: 100%;  
@@ -84,7 +84,6 @@
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  stroke-dasharray: 10px;
 }
 
 #teamwork-svg path:nth-child(1){
@@ -114,4 +113,17 @@
 .dummylines-container{
   width: 45%;
   margin: 10px auto;
+}
+
+@media only screen and (max-width: 768px){
+.hero-aside{
+  width: 100%;
+  left: 0px;
+}
+#teamwork-svg{
+  transform: scale(0.75, 0.75) translateX(-62.5%)
+}
+.phone-aside{
+  display: none;
+}
 }
