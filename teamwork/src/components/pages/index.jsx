@@ -11,26 +11,11 @@ import purpleChatsUndraw from './../images/purple-chats-undraw.png';
 import DummyArticleLine from './../DummyArticleLine';
 import TeamworkSVG from './../TeamworkSVG';
 import DummyToggle from './../DummyToggles';
+import RandomizeBoxes from './../RandomizeBoxes';
 
 class Index extends Component {
 
-    constructor(props) {
-        super(props);
 
-        this.boxes = [];
-        this.randomizeBoxes = () => {
-
-            for (let i = 0; i < 20; i++) {
-                let randomNum = Math.round(Math.random() * 600) + 'px';
-                let randomNum2 = Math.round(Math.random() * 800) + 'px';
-                let randWidthHeight = Math.round(Math.random() * 100) + 'px';
-                let transparentBGBox = <TransparentBGBox key= {i} top={randomNum} left={randomNum2} widthHeight={randWidthHeight} />
-                this.boxes.push(transparentBGBox);
-
-            }
-
-        }
-    }
 
     render() {
         return (
@@ -38,8 +23,7 @@ class Index extends Component {
                 <div>
                     <Logo />
                     <aside className="hero-aside">
-                        {this.randomizeBoxes()}
-                        {this.boxes}
+                        <RandomizeBoxes />
                         <LoginButton />
                         <br /><br /><br /><br />
                         <TeamworkSVG />
