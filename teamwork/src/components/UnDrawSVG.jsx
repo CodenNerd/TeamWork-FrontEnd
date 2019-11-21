@@ -13,8 +13,6 @@ class unDrawSVG extends Component {
         return (
             <div className='undraw'>
                 <img src={this.state.src} alt="ddd"/>
-
-                {console.log(this)}
             </div>
         );
     }
