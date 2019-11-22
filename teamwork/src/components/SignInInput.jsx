@@ -10,9 +10,16 @@ class Input extends Component {
             hidden: this.props.hidden,
             feedback: null
         }
+        this.inputField = React.createRef();
 
     }
 
+    getInputState = () =>{
+        return this.state;
+    }
+    setInputState = (data) =>{
+        this.setState({feedback: data})
+    }
 
     handleChange = (event) => {
 
@@ -50,11 +57,8 @@ class Input extends Component {
         this.setState({ hidden: !this.state.hidden })
     }
     render() {
-
-
-
         return (
-            <div className="signin-input">
+            <div className="signin-input" ref={this.inputField}>
                 <input onFocus={this.handleFocus} onInput={this.handleInput} onChange={this.handleChange} value={this.state.value} type={this.state.hidden ? "password" : "text"} name={this.props.name} autoComplete="off" maxLength={this.props.maxLength} required />
                 <label htmlFor={this.props.name} >
                     <span> {this.props.content} </span>
