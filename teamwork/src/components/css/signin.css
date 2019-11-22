@@ -17,15 +17,15 @@
 
 .signin-input{
     width: 50%;
-    height: 50px;
+    height: 70px;
     position: relative;
-    margin: 25px auto;
+    margin: 15px auto;
     color: white;
     overflow: hidden;
 }
 .signin-input input{
     width: 100%;
-    height: 100%;
+    height: 70%;
     color: lightgrey;
     font-style: italic;;
     padding-top: 20px;
@@ -33,12 +33,16 @@
     background: transparent;
     outline: none;
 }
+.signin-input input[type="password"]{
+    font-size: 30px;
+    padding-right: 40px; 
+}
 .signin-input label{
     position: absolute;
-    bottom: 0px;
+    bottom: 20px;
     left: 0%;
     width: 100%;
-    height: 100%;
+    height: 70%;
     pointer-events: none;
     border-bottom: 1px solid lightgrey;
 
@@ -50,7 +54,7 @@
     bottom: -1px;
     height: 100%;
     width: 100%;
-    border-bottom: 1px solid white;
+    border-bottom: 2px solid white;
     transform: translateX(-100%);
     transition: transform 0.5s ease;
 
@@ -61,9 +65,9 @@
     left:0px;
     transition: transform 0.3s ease;
 }
-.signin-input input:focus + label span, .signin-input input:valid + label span {
+.signin-input input:focus + label span, 
+.signin-input input:valid + label span {
     transform: translateY(-130%);
-
 }
 .signin-input input:focus + label::after, 
 .signin-input input:valid + label::after {
@@ -84,3 +88,21 @@
   .si-btn:hover{
       box-shadow: 1px 1px 50px white;
   } 
+  i.fa-eye, i.fa-eye-slash{
+      float: right;
+      position: absolute;
+      right: 10px;
+      bottom: 5px;
+      color: white;
+      cursor: pointer;
+      z-index: +2;
+      pointer-events: all;
+  }
+
+div.si-input-feedback{
+    color: orange;
+    position: absolute;
+    z-index: +300;
+    bottom: 0px;
+    font-size: 12px;
+}
