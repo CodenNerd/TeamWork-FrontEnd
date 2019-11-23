@@ -12,6 +12,7 @@ import DummyArticleLine from './../DummyArticleLine';
 import TeamworkSVG from './../TeamworkSVG';
 import DummyToggle from './../DummyToggles';
 import RandomizeBoxes from './../RandomizeBoxes';
+import './../css/index.css';
 
 class Index extends Component {
 
