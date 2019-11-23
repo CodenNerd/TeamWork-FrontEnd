@@ -54,3 +54,48 @@
 .loader-hide{
   display: none;
 }
+
+.success, .error{
+  background: rgba(255, 255, 255, 0.774);
+  width: 250px;
+  height: 100px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: green;
+  border-radius: 10px;
+  border-top-right-radius: 0px;
+  box-shadow: 0px;
+  border: none;
+  padding: 15px 25px;
+  animation: slide-in 1s ease-in-out both;
+  display: inline-block;
+}
+.error{
+  color: rgb(153, 0, 0);
+  background: rgba(255, 0, 0, 0.267);
+}
+.success h4, .error h4{
+  margin: 0px;
+  text-transform: capitalize;
+}
+.success span, .error span{
+  font-size: 15px;
+  
+}
+.slide-out{
+  animation: slide-out 1s 3s ease-in-out both;
+}
+@keyframes slide-in{
+  from{
+    transform: translateX(+300px);
+  }
+}
+@keyframes slide-out{
+  to{
+    transform: translateX(+300px);
+  }
+}
+.no-feedback{
+  display: none;
+}
