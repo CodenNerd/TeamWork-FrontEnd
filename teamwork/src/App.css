@@ -104,13 +104,16 @@
 }
 
 /* start of admin dashboard styling */
+
 .admin-dashboard-card{
+  display: block;
   width: 70%;
     background-color: rgb(128, 7, 165);
     height: 80vh;
     position: fixed;
     top:10vh;
-    left:15%;
+    left: 15%;
+    margin: 0px auto;
     box-shadow: -10px 0px 30px grey;
     overflow: hidden;
 }
@@ -121,16 +124,108 @@
   /* box-shadow: 1px 1px 20px grey inset; */
   display: inline-block;
   z-index: +500;
+  position: relative;
+  overflow: hidden;
 }
 .admin-dashboard-card .issues-div{
   width: 50%;
   height: 100%;
-  background: rgb(231, 231, 231);
+  background: rgb(238, 238, 238);
   display: inline-block;
+  position: absolute;
+  top: 0;
 }
 .admin-dashboard-card .activity-div{
   display: inline-block;
   background: white;
   width: 44%;
   height: 100%;
+  position: absolute;
+  top: 0;
+  left: 56%;
+}
+.admin-dashboard-card .icons-div .fas, 
+.admin-dashboard-card .icons-div .far{
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px;
+}
+.admin-dashboard-card .icons-div .fa-user{
+  top: 20px;
+} 
+.admin-dashboard-card .icons-div .fa-user-plus{
+  top: 80px;
+}
+.admin-dashboard-card .icons-div .fa-flag{
+  top: 140px;
+}
+.icon-active, .admin-dashboard-card .icons-div .fas:hover, 
+.admin-dashboard-card .icons-div .far:hover{
+  /* border: 1px solid white; */
+  background: rgba(0, 0, 0, 0.253);
+}
+.admin-dashboard-card .issues-div h3{
+  text-align: center;
+  color: grey
+}
+
+@media only screen and (max-width: 768px){
+  .hero-aside{
+    width: 100%;
+    left: 0px;
+  }
+  #teamwork-svg{
+    transform: scale(0.75, 0.75) translateX(-62.5%)
+  }
+  .phone-aside{
+    display: none;
+  }
+  
+}
+
+@media only screen and (max-width: 1000px){
+.admin-dashboard-card{
+    width: 90%;
+    left: 5%;
+  }
+}
+
+@media only screen and (max-width: 400px){
+  .admin-dashboard-card{
+    left: 0px;
+    width: 100%;
+  }
+  .admin-dashboard-card .icons-div{
+    width: 100%;
+    height: 40px;
+    background: inherit;
+  }
+  .admin-dashboard-card .issues-div{
+    width: 100%;
+  height: 90%;
+  background: rgb(238, 238, 238);
+  display: inline-block;
+  position: static;
+  }
+  .admin-dashboard-card .activity-div{
+    display: none;
+  }
+  .admin-dashboard-card .icons-div .fa-user{
+    top: -5px;
+    left: 25%;
+  } 
+  .admin-dashboard-card .icons-div .fa-user-plus{
+    top: -5px;
+    left: 50%;
+  }
+  .admin-dashboard-card .icons-div .fa-flag{
+    top: -5px;
+    left: 75%;
+  }
+  
+
 }
