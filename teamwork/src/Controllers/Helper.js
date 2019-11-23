@@ -1,6 +1,5 @@
 const Helper = {
     fetchPostRequest(apiEndpoint, requestObject) {
-        //   showLoader();
         console.log(requestObject);
         fetch(apiEndpoint,{
             method: 'POST',
@@ -19,6 +18,7 @@ const Helper = {
                 return data;
             })
             .catch((e) => {
+
               //  hideLoader();
               //  showErrorBubble(e);
                 console.log(e)
