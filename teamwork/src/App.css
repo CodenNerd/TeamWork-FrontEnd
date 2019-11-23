@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 .loader-div{
   background: rgba(0, 0, 0, 0.692);
   position: fixed;
@@ -98,4 +101,36 @@
 }
 .no-feedback{
   display: none;
+}
+
+/* start of admin dashboard styling */
+.admin-dashboard-card{
+  width: 70%;
+    background-color: rgb(128, 7, 165);
+    height: 80vh;
+    position: fixed;
+    top:10vh;
+    left:15%;
+    box-shadow: -10px 0px 30px grey;
+    overflow: hidden;
+}
+
+.admin-dashboard-card .icons-div{
+  width: 6%;
+  height: 100%;
+  /* box-shadow: 1px 1px 20px grey inset; */
+  display: inline-block;
+  z-index: +500;
+}
+.admin-dashboard-card .issues-div{
+  width: 50%;
+  height: 100%;
+  background: rgb(231, 231, 231);
+  display: inline-block;
+}
+.admin-dashboard-card .activity-div{
+  display: inline-block;
+  background: white;
+  width: 44%;
+  height: 100%;
 }
