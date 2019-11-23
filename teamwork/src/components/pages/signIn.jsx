@@ -4,6 +4,7 @@ import Logo from './../teamwork-logo-grey';
 import './../css/signin.css';
 import SignInForm from './../SignInForm'
 import SignInUndraw from './../images/signin-undraw.png'
+import Loader from './../Loader';
 
 class SignIn extends Component {
 
@@ -13,7 +14,7 @@ class SignIn extends Component {
                 <Logo />
                 <aside className="hero-aside">
                     <RandomizeBoxes />
-
+                    <Loader />
                     <h1 className="signin-text">Sign In</h1>
 
                     <SignInForm />

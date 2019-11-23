@@ -59,7 +59,7 @@ class Input extends Component {
     render() {
         return (
             <div className="signin-input" ref={this.inputField}>
-                <input onFocus={this.handleFocus} onInput={this.handleInput} onChange={this.handleChange} value={this.state.value} type={this.state.hidden ? "password" : "text"} name={this.props.name} autoComplete="off" maxLength={this.props.maxLength} required />
+                <input onFocus={this.handleFocus} onInput={this.handleInput} onChange={this.handleChange} value={this.state.value} type={this.state.hidden ? "password" : "text"} name={this.props.name} maxLength={this.props.maxLength} required />
                 <label htmlFor={this.props.name} >
                     <span> {this.props.content} </span>
                     <i className={this.state.hidden ? this.props.icon : this.props.iconInv} onClick={this.handleEyeClick}></i>

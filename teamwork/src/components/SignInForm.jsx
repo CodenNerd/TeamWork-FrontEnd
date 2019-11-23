@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SignInInput from './SignInInput';
+import Helper from "./../Controllers/Helper";
 
 class Form extends Component {
     constructor(props) {
@@ -18,15 +19,15 @@ class Form extends Component {
 
         console.log(email, password);
 
-        if(email.value.length < 5 && password.value.length < 5){
+        if (email.value.length < 5 && password.value.length < 5) {
             this.emailField.current.setInputState(`* Invalid input`);
             this.passField.current.setInputState(`* Invalid input`);
             return;
-        }else if(email.value < 5){
+        } else if (email.value < 5) {
             return this.emailField.current.setInputState(`* Invalid input`);
-        }else if(password.value < 5){
+        } else if (password.value < 5) {
             return this.passField.current.setInputState(`* Invalid input`);
-        }else{
+        } else {
 
         }
 
@@ -42,20 +43,23 @@ class Form extends Component {
         }
         // if valid - call submit method
 
-       // submitSignIn()
+        console.log({ "email": email.value, "password": password.value })
+        this.submitSignIn({ "email": email.value, "password": password.value });
 
         return;
     }
-    submitSignIn = (email, password) =>{
-        
+    submitSignIn = (credentials) => {
+        Helper.fetchPostRequest('http://teamwork4andela.herokuapp.com/api/v1/auth/signin', credentials);
     }
 
     render() {
         return (
             <React.Fragment>
+                <form onSubmit={e=>e.preventDefault()}>
                 <SignInInput ref={this.emailField} hidden={false} name="si-email" content="Email" maxLength="35" />
                 <SignInInput ref={this.passField} hidden={true} name="si-password" content="Password" maxLength="20" icon="far fa-eye" iconInv="far fa-eye-slash" />
                 <button onClick={this.handleClick} className="si-btn">Sign In</button>
+                </form>
             </React.Fragment>
 
         );
