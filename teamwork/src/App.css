@@ -304,6 +304,9 @@
     top: -5px;
     left: 75%;
   }
-  
+}
 
+.success-canvas{
+  display: block;
+  margin: 50px auto;
 }

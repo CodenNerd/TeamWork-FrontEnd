@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import RandomizeBoxes from './../RandomizeBoxes';
 import Logo from './../teamwork-logo-grey';
 import CreateUserInput from './../createUserInput';
+import CreateSuccessAnime from './../CreateSuccessAnime';
 
 class SignIn extends Component {
     constructor(props){
         super(props);
         this.state = {
-            nothinghy: true,
+            nothinghy: false,
+            successCanvas: false,
         }
     }
 
@@ -42,6 +44,10 @@ class SignIn extends Component {
                     </div>
                     <div className="activity-div">
                             <div className={this.state.nothinghy? 'nothing-hy': 'hidden'}>Nothing here yet</div> 
+
+                               <CreateSuccessAnime className={this.state.successCanvas? 'success-canvas': 'hidden'}/> 
+
+                                
                                 {/* // Display Success Anime
                                 // Display New User's Details */}
                     </div>
