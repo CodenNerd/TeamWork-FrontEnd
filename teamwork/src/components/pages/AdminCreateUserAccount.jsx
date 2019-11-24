@@ -4,6 +4,12 @@ import Logo from './../teamwork-logo-grey';
 import CreateUserInput from './../createUserInput';
 
 class SignIn extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            nothinghy: true,
+        }
+    }
 
     render() {
         return (
@@ -35,7 +41,9 @@ class SignIn extends Component {
 
                     </div>
                     <div className="activity-div">
-                            
+                            <div className={this.state.nothinghy? 'nothing-hy': 'hidden'}>Nothing here yet</div> 
+                                {/* // Display Success Anime
+                                // Display New User's Details */}
                     </div>
                 </div>
                </div>
