@@ -7,7 +7,6 @@ import AdminDashboard from './components/pages/AdminDashboard';
 import AdminCreateUserAccount from './components/pages/AdminCreateUserAccount';
 
 // import PageNotFound from './components/pages/PageNotFound'
-
 function App() {
   return (
     <Switch>

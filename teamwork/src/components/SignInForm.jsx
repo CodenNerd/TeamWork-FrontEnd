@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import SignInInput from './SignInInput';
-import Helper from "./../Controllers/Helper";
 import Loader from './Loader';
 import FeedBackBox from './FeedbackBox';
+import userAuth from './../Controllers/Auth';
+import { Redirect } from "react-router-dom";
 
 class Form extends Component {
     constructor(props) {
@@ -13,11 +14,19 @@ class Form extends Component {
                 type: 'no-feedback',
                 head: 'Success',
                 message: "feedback"
-            }
+            },
+            redirect: false,
+            user: null
         }
         this.emailField = React.createRef();
         this.passField = React.createRef();
 
+    }
+    componentWillMount(){
+        const user = userAuth;
+       if (user.data) {
+           if (user.data.token) this.setState({redirect: true})
+       }
     }
 
     handleClick = () => {
@@ -64,6 +73,14 @@ class Form extends Component {
         const message = data.data ? data.data.message : data.message;
         this.setState({ feedback: { type: status, head: status, message: message } })
         setTimeout(h => this.setState({ feedback: { type: `${status} slide-out`, head: status, message: message } }), 1000);
+        
+
+        if (status==="success"){ 
+            userAuth(data);
+            this.setState({redirect: true, user: "admin"}); // or employee
+        }else{
+            return;
+        };
     }
     submitSignIn = (credentials) => {
         this.showLoader(true);
@@ -88,13 +105,14 @@ class Form extends Component {
             }).then((info)=>{
                 console.log('info:', info)
                 this.showHideFeedback(info);
+                
+
 
             })
             .catch((e) => {
                 setTimeout(h => this.showLoader(false), 1000);
                 this.showHideFeedback(e);
-              //  hideLoader();
-              //  showErrorBubble(e);
+              
                 console.log(e);
             });
 
@@ -103,6 +121,8 @@ class Form extends Component {
     render() {
         return (
             <React.Fragment>
+                {this.state.redirect && this.state.user==="admin"? <Redirect to="/admin/dashboard/create-user" />: null }
+                {/* null should redirect to employee page */}
                 <FeedBackBox feedback={this.state.feedback} />
                 <Loader show={this.state.loaderVisibility ? 'loader-div' : 'loader-hide'} />
                 <form onSubmit={e => e.preventDefault()}>

@@ -192,6 +192,30 @@
 .admin-dashboard-card .icons-div .fa-flag{
   top: 140px;
 }
+.admin-dashboard-card .icons-div .fa-sign-out-alt{
+  top: 450px;
+  color: orangered;
+}
+.admin-dashboard-card .icons-div .fa-sign-out-alt::after{
+  content:'sign-out';
+  position: fixed;
+  font-size: 12px;
+  top:-10px;
+  left: 0px;
+  background: rgba(207, 144, 144, 0.589);
+  display: inline-block;
+  padding: 5px 10px;
+  width: 50px;
+  z-index: +50;
+  color: white;
+  font-weight: lighter;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.admin-dashboard-card .icons-div .fa-sign-out-alt:hover::after{
+  opacity: 1;
+}
 .icon-active, .admin-dashboard-card .icons-div .fas:hover, 
 .admin-dashboard-card .icons-div .far:hover{
   /* border: 1px solid white; */
@@ -309,4 +333,23 @@
 .success-canvas{
   display: block;
   margin: 50px auto;
+}
+
+.nu-details{
+  width: 80%;
+  margin: 50px auto;
+}
+.nu-details h3{
+  text-align: center;
+  color: green;
+  margin-bottom: 40px;
+}
+.nu-details li{
+  list-style-type: none;
+  color: grey;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.nu-details li b{
+  font-weight: lighter;
 }
