@@ -5,7 +5,7 @@ import CreateUserInput from './../createUserInput';
 import CreateSuccessAnime from './../CreateSuccessAnime';
 import NewUserDetails from './../NewUserDetails';
 import userAuth from "./../../Controllers/Auth";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import Loader from './../Loader';
 import FeedBackBox from "./../FeedbackBox";
 
@@ -250,9 +250,9 @@ class SignUp extends Component {
                     <RandomizeBoxes />
 
                     <div className="icons-div">
-                        <i className="far fa-user"></i>
-                        <i className="fas fa-user-plus icon-active"></i>
-                        <i className="far fa-flag"></i>
+                    <Link to='/admin/dashboard'> <i className="far fa-user"></i></Link>
+                       <Link to='/admin/dashboard/create-user'> <i className="fas fa-user-plus icon-active"></i> </Link>
+                       <Link to='/admin/dashboard/flags'> <i className="far fa-flag"></i> </Link>
                         <i onClick={this.handleSignOut} className="fas fa-sign-out-alt"></i>
 
                     </div>
