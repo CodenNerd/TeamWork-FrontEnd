@@ -361,3 +361,10 @@ body{
 .nu-details li b{
   font-weight: lighter;
 }
+.welcome-admin{
+  font-weight: lighter;
+  font-size: 30px;
+  color: green;
+  margin: 200px auto;
+  text-align: center;
+}

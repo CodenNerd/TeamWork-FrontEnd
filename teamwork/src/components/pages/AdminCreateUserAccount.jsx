@@ -9,7 +9,7 @@ import { Redirect } from "react-router-dom";
 import Loader from './../Loader';
 import FeedBackBox from "./../FeedbackBox";
 
-class SignIn extends Component {
+class SignUp extends Component {
     constructor(props) {
         super(props);
         this.firstName = React.createRef();
@@ -286,4 +286,4 @@ class SignIn extends Component {
     }
 }
 
-export default SignIn;
+export default SignUp;
