@@ -1,3 +1,17 @@
+*{
+  box-sizing: border-box;
+  
+}
+body{
+  width: 100%;
+  overflow-x: hidden; 
+}
+::selection {
+  background: rgba(255, 166, 0, 0.815); /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: rgba(255, 166, 0, 0.815); /* Gecko Browsers */
+}
 .loader-div{
   background: rgba(0, 0, 0, 0.692);
   position: fixed;
@@ -98,4 +112,252 @@
 }
 .no-feedback{
   display: none;
+}
+
+/* start of admin dashboard styling */
+
+.admin-dashboard-card{
+  display: block;
+  width: 70%;
+    background-color: rgb(128, 7, 165);
+    height: 80vh;
+    position: fixed;
+    top:10vh;
+    left: 15%;
+    margin: 0px auto;
+    box-shadow: -10px 0px 30px grey;
+    overflow: hidden;
+}
+
+.admin-dashboard-card .icons-div{
+  width: 6%;
+  height: 100%;
+  /* box-shadow: 1px 1px 20px grey inset; */
+  display: inline-block;
+  z-index: +500;
+  position: relative;
+  overflow: hidden;
+}
+.admin-dashboard-card .issues-div{
+  width: 50%;
+  height: 100%;
+  background: rgb(238, 238, 238);
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  padding-left: 15px; 
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: purple;
+  height: 50px;
+
+}
+
+
+.admin-dashboard-card .activity-div{
+  display: inline-block;
+  background: white;
+  width: 44%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 56%;
+}
+.admin-dashboard-card .activity-div .nothing-hy{
+  color: rgb(170, 170, 170);
+  margin: 50px auto;
+  text-align: center;
+}
+.admin-dashboard-card .icons-div .fas, 
+.admin-dashboard-card .icons-div .far{
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px;
+}
+.admin-dashboard-card .icons-div .fa-user{
+  top: 20px;
+} 
+.admin-dashboard-card .icons-div .fa-user-plus{
+  top: 80px;
+}
+.admin-dashboard-card .icons-div .fa-flag{
+  top: 140px;
+}
+.admin-dashboard-card .icons-div .fa-sign-out-alt{
+  top: 450px;
+  color: grey;
+}
+.admin-dashboard-card .icons-div .fa-sign-out-alt::after{
+  content:'sign-out';
+  position: fixed;
+  font-size: 12px;
+  top:-10px;
+  left: 0px;
+  background: rgba(207, 144, 144, 0.589);
+  display: inline-block;
+  padding: 5px 10px;
+  width: 50px;
+  z-index: +50;
+  color: white;
+  font-weight: lighter;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.admin-dashboard-card .icons-div .fa-sign-out-alt:hover::after{
+  opacity: 1;
+}
+.icon-active, .admin-dashboard-card .icons-div .fas:hover, 
+.admin-dashboard-card .icons-div .far:hover{
+  /* border: 1px solid white; */
+  background: rgba(0, 0, 0, 0.253);
+}
+.admin-dashboard-card .issues-div h3{
+  text-align: left;
+  color: purple;
+  padding: 0px 20px;
+}
+.c-input-div{
+  max-width: 90%;
+  text-align: center;
+  margin: 10px 15px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+.c-input-div label{
+  width: 100%;
+  display: block;
+  text-align: left;
+  padding-left: 2px;
+  color: grey
+}
+.c-input-div input{
+  width: 100%;
+  background: rgba(190, 190, 190, 0.678);
+  border-radius: 5px;
+  border: none;
+  height: 30px;
+  /* box-shadow: 1px 1px 10px rgba(150, 150, 150, 0.835) inset; */
+  padding: 0px 10px;
+  outline: none;
+  color: purple;
+}
+#jr-div{
+ margin-right: 30px;
+ float: right;
+}
+.create-btn{
+  float: right;
+  padding: 10px 20px;
+  background: white;
+  border: none;
+  color: green;
+  margin: 15px 35px;
+  margin-bottom: 0px;
+  box-shadow: 1px 1px 5px grey;
+  outline-color: green;
+}
+.hidden{
+  display: none;
+}
+@media only screen and (max-width: 768px){
+  .hero-aside{
+    width: 100%;
+    left: 0px;
+  }
+  #teamwork-svg{
+    transform: scale(0.75, 0.75) translateX(-62.5%)
+  }
+  .phone-aside{
+    display: none;
+  }
+  
+}
+
+@media only screen and (max-width: 1000px){
+.admin-dashboard-card{
+    width: 90%;
+    left: 5%;
+  }
+}
+@media only screen and (max-width: 800px ){
+  .c-input-div{
+    width: 100% !important;
+  }
+  
+}
+
+@media only screen and (max-width: 600px){
+  .admin-dashboard-card{
+    left: 0px;
+    width: 100%;
+  }
+  .admin-dashboard-card .icons-div{
+    width: 100%;
+    height: 40px;
+    background: inherit;
+  }
+  .admin-dashboard-card .issues-div{
+    width: 100%;
+  height: 90%;
+  background: rgb(238, 238, 238);
+  display: inline-block;
+  position: static;
+  }
+  .admin-dashboard-card .activity-div{
+    display: none;
+  }
+  .admin-dashboard-card .icons-div .fa-user{
+    top: -5px;
+    left: 25%;
+  } 
+  .admin-dashboard-card .icons-div .fa-user-plus{
+    top: -5px;
+    left: 50%;
+  }
+  .admin-dashboard-card .icons-div .fa-flag{
+    top: -5px;
+    left: 75%;
+  }
+  .admin-dashboard-card .icons-div .fa-sign-out-alt{
+    top: -5px;
+    left: 90%;
+  }
+}
+
+.success-canvas{
+  display: block;
+  margin: 50px auto;
+}
+
+.nu-details{
+  width: 80%;
+  margin: 50px auto;
+}
+.nu-details h3{
+  text-align: center;
+  color: green;
+  margin-bottom: 40px;
+}
+.nu-details li{
+  list-style-type: none;
+  color: grey;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.nu-details li b{
+  font-weight: lighter;
 }

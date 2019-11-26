@@ -131,15 +131,4 @@ body, #teamwork-svg, .signin-text{
     bottom: 2px;
     left: 10px;
   }
-  @media only screen and (max-width: 768px){
-  .hero-aside{
-    width: 100%;
-    left: 0px;
-  }
-  #teamwork-svg{
-    transform: scale(0.75, 0.75) translateX(-62.5%)
-  }
-  .phone-aside{
-    display: none;
-  }
-  }
+  

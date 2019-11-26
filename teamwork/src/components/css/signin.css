@@ -99,12 +99,16 @@
       pointer-events: all;
   }
 
-div.si-input-feedback{
+div.si-input-feedback, .c-input-feedback{
     color: orange;
     position: absolute;
     z-index: +300;
     bottom: 0px;
     font-size: 12px;
+}
+.c-input-feedback{
+    position: static;
+    float: left;
 }
 
 input:-webkit-autofill,

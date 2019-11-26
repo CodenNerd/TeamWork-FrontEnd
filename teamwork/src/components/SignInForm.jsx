@@ -1,24 +1,35 @@
 import React, { Component } from 'react';
 import SignInInput from './SignInInput';
-import Helper from "./../Controllers/Helper";
 import Loader from './Loader';
 import FeedBackBox from './FeedbackBox';
+import userAuth from './../Controllers/Auth';
+import { Redirect } from "react-router-dom";
 
 class Form extends Component {
     constructor(props) {
         super(props);
         this.state = {
             loaderVisibility: false,
-            feedback: {
-                type: 'no-feedback',
-                head: 'Success',
-                message: "feedback"
-            }
+            feedback: [
+                'no-feedback', //type
+                'Success', //head
+                "feedback" //message
+            ],
+            redirect: false,
+            user: null
         }
         this.emailField = React.createRef();
         this.passField = React.createRef();
 
     }
+    componentWillMount(){
+        const user = userAuth();
+    if(user){
+       if (user.data) {
+           if (user.data.token) this.setState({redirect: true, user: "admin"})
+       }
+    }
+}
 
     handleClick = () => {
         //ref inputs for state
@@ -41,13 +52,20 @@ class Form extends Component {
 
         // check that feedback is null
         if (email.feedback !== null || password.feedback !== null) {
-            return alert('Wrong credentials provided');
+            this.setState({ feedback: ['error', 'error', 'Wrong credentials provided' ] })
+        setTimeout(h => this.setState({ feedback: [`error slide-out`, 'error', 'Wrong credentials provided' ] }), 1000);
+        
+            return ;
         }
 
         // check email validity
         if (!(/\S+@\S+\.\S+/.test(email.value))) {
             this.emailField.current.setInputState(`* Enter a valid email`);
-            return alert('Wrong credentials provided');
+            this.setState({ feedback: ['error', 'error', 'Wrong credentials provided' ] })
+            setTimeout(h => this.setState({ feedback: [`error slide-out`, 'error', 'Wrong credentials provided' ] }), 1000);
+            
+
+            return ;
         }
         // if valid - call submit method
 
@@ -62,8 +80,16 @@ class Form extends Component {
     showHideFeedback = (data) => {
         const {status} = data;
         const message = data.data ? data.data.message : data.message;
-        this.setState({ feedback: { type: status, head: status, message: message } })
-        setTimeout(h => this.setState({ feedback: { type: `${status} slide-out`, head: status, message: message } }), 1000);
+        this.setState({ feedback: [status, status, message ] })
+        setTimeout(h => this.setState({ feedback: [`${status} slide-out`, status, message ] }), 1000);
+        
+
+        if (status==="success"){ 
+            userAuth(data);
+            setTimeout(a=>this.setState({redirect: true, user: "admin"}), 2000); // or employee
+        }else{
+            return;
+        };
     }
     submitSignIn = (credentials) => {
         this.showLoader(true);
@@ -88,13 +114,14 @@ class Form extends Component {
             }).then((info)=>{
                 console.log('info:', info)
                 this.showHideFeedback(info);
+                
+
 
             })
             .catch((e) => {
                 setTimeout(h => this.showLoader(false), 1000);
                 this.showHideFeedback(e);
-              //  hideLoader();
-              //  showErrorBubble(e);
+              
                 console.log(e);
             });
 
@@ -103,6 +130,8 @@ class Form extends Component {
     render() {
         return (
             <React.Fragment>
+                {this.state.redirect && this.state.user==="admin"? <Redirect to="/admin/dashboard/create-user" />: null }
+                {/* null should redirect to employee page */}
                 <FeedBackBox feedback={this.state.feedback} />
                 <Loader show={this.state.loaderVisibility ? 'loader-div' : 'loader-hide'} />
                 <form onSubmit={e => e.preventDefault()}>
