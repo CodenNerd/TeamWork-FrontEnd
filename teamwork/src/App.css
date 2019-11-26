@@ -84,6 +84,7 @@ body{
   padding: 15px 25px;
   animation: slide-in 1s ease-in-out both;
   display: inline-block;
+  z-index: +3000;
 }
 .error{
   color: rgb(153, 0, 0);
