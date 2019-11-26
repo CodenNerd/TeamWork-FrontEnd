@@ -10,11 +10,11 @@ class Form extends Component {
         super(props);
         this.state = {
             loaderVisibility: false,
-            feedback: {
-                type: 'no-feedback',
-                head: 'Success',
-                message: "feedback"
-            },
+            feedback: [
+                'no-feedback', //type
+                'Success', //head
+                "feedback" //message
+            ],
             redirect: false,
             user: null
         }
@@ -23,11 +23,13 @@ class Form extends Component {
 
     }
     componentWillMount(){
-        const user = userAuth;
+        const user = userAuth();
+    if(user){
        if (user.data) {
-           if (user.data.token) this.setState({redirect: true})
+           if (user.data.token) this.setState({redirect: true, user: "admin"})
        }
     }
+}
 
     handleClick = () => {
         //ref inputs for state
@@ -50,13 +52,20 @@ class Form extends Component {
 
         // check that feedback is null
         if (email.feedback !== null || password.feedback !== null) {
-            return alert('Wrong credentials provided');
+            this.setState({ feedback: ['error', 'error', 'Wrong credentials provided' ] })
+        setTimeout(h => this.setState({ feedback: [`error slide-out`, 'error', 'Wrong credentials provided' ] }), 1000);
+        
+            return ;
         }
 
         // check email validity
         if (!(/\S+@\S+\.\S+/.test(email.value))) {
             this.emailField.current.setInputState(`* Enter a valid email`);
-            return alert('Wrong credentials provided');
+            this.setState({ feedback: ['error', 'error', 'Wrong credentials provided' ] })
+            setTimeout(h => this.setState({ feedback: [`error slide-out`, 'error', 'Wrong credentials provided' ] }), 1000);
+            
+
+            return ;
         }
         // if valid - call submit method
 
@@ -71,13 +80,13 @@ class Form extends Component {
     showHideFeedback = (data) => {
         const {status} = data;
         const message = data.data ? data.data.message : data.message;
-        this.setState({ feedback: { type: status, head: status, message: message } })
-        setTimeout(h => this.setState({ feedback: { type: `${status} slide-out`, head: status, message: message } }), 1000);
+        this.setState({ feedback: [status, status, message ] })
+        setTimeout(h => this.setState({ feedback: [`${status} slide-out`, status, message ] }), 1000);
         
 
         if (status==="success"){ 
             userAuth(data);
-            this.setState({redirect: true, user: "admin"}); // or employee
+            setTimeout(a=>this.setState({redirect: true, user: "admin"}), 2000); // or employee
         }else{
             return;
         };

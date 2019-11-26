@@ -29,7 +29,7 @@ class Input extends Component {
 
     handleInput = (event) => {
         const { target } = event;
-        const invalidChars = ['`', `'`, `<`, `>`, `/`, `!`, `%`, `^`, `*`, `-`, `(`, `)`, `+`, `=`, `[`, `]`, `\\`, `"`, `:`, `;`, `?`, `¬`, `~`];
+        const invalidChars = ['`', `'`, `<`, `>`, `/`, `!`, `%`, `^`, `*`, `-`, `(`, `)`, `+`, `=`, `[`, `]`, `\\`, `"`, `:`, `;`, `?`, `¬`, `~`, ` `];
 
         const input2Array = target.value.split("");
         const filteredWithInvalid = input2Array.filter(letter => {

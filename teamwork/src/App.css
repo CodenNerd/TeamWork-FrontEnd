@@ -2,6 +2,10 @@
   box-sizing: border-box;
   
 }
+body{
+  width: 100%;
+  overflow-x: hidden; 
+}
 ::selection {
   background: rgba(255, 166, 0, 0.815); /* WebKit/Blink Browsers */
 }
@@ -194,7 +198,7 @@
 }
 .admin-dashboard-card .icons-div .fa-sign-out-alt{
   top: 450px;
-  color: orangered;
+  color: grey;
 }
 .admin-dashboard-card .icons-div .fa-sign-out-alt::after{
   content:'sign-out';
@@ -327,6 +331,10 @@
   .admin-dashboard-card .icons-div .fa-flag{
     top: -5px;
     left: 75%;
+  }
+  .admin-dashboard-card .icons-div .fa-sign-out-alt{
+    top: -5px;
+    left: 90%;
   }
 }
 
