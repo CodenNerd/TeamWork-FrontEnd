@@ -172,6 +172,7 @@ body{
   position: absolute;
   top: 0;
   left: 56%;
+  overflow: scroll;
 }
 .admin-dashboard-card .activity-div .nothing-hy{
   color: rgb(170, 170, 170);
@@ -396,7 +397,7 @@ body{
   padding: 2px;
 }
 .flagged-post .text-content p{
-  max-height: 60px;
+  max-height: 20px;
   overflow: hidden;
   margin: 0px;
   font-style: oblique;
@@ -404,7 +405,7 @@ body{
 .flagged-post .icons{
   border-top: 1px dashed rgba(128, 0, 128, 0.294)
 }
-.flagged-post .tag{
+.flagged-post .tag, .selected-flag .tag{
   display: inline-block;
   padding: 3px 15px;
   background: rgb(134, 123, 107);
@@ -428,3 +429,35 @@ body{
   color: green;
   font-size: 20px;
 }
+.flagListHead{
+  color: rgb(197, 197, 197);
+  text-align: left;
+}
+
+div.selected-flag{
+  color: rgb(134, 123, 107);
+  width: 100%;
+  overflow-y: scroll;
+  padding: 20px 10px;
+}
+.selected-flag .title{
+  text-align: center;
+  font-weight: 100;
+  font-size: 30px;
+}
+.selected-flag .image{
+  width: 70%;
+  margin: 0px auto;
+}
+.selected-flag .image img{
+  width: 100%;
+}
+.selected-flag .content{
+  font-style: oblique;
+  text-align: center;
+}
+.selected-flag .date{
+  font-size: 10px;
+  padding: 1px 5px;
+}
+
