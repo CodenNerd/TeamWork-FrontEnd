@@ -27,7 +27,13 @@ class Dashboard extends Component {
             flaggedArticles: [],
             flaggedGifs: [],
             flaggedComments: [],
-            currentPost: null
+            currentPost: null,
+            confirmDelete: null,
+            confirmAccept: null,
+            displayConfirm: false,
+            displayAcceptConfirm: false,
+            deleteFlagId: null,
+            acceptFlagId: null
         }
 
 
@@ -117,6 +123,9 @@ class Dashboard extends Component {
                     this.showHideFeedback('success', 'Flags fetched');
 
                     this.setState({ flaggedArticles: data.data.articles, flaggedGifs: data.data.gifs, flaggedComments: data.data.comments, noFlags: false })
+                    if(!data.data.articles[0] && !data.data.gifs[0] && !data.data.comments[0]){
+                        this.setState({ flaggedArticles: data.data.articles, flaggedGifs: data.data.gifs, flaggedComments: data.data.comments, noFlags: true })
+                    }               
                 }
                 else {
                     this.setState({ noFlags: true })
@@ -138,6 +147,12 @@ class Dashboard extends Component {
         this.setState({ currentPost: this.state.flaggedComments[i] });
     }
     handleDelete = (flagId) => {
+
+        if(this.state.confirmDelete !== true){
+            return;
+        }
+
+        this.setState({confirmDelete: null});
 
         const user = userAuth();
 
@@ -163,16 +178,83 @@ class Dashboard extends Component {
                             this.showHideFeedback('success', data.response.deletePost.message)
                         }
                 }
-
-            }).then(()=>{
+            }).then(() => {
                 this.fetchFlaggedPosts();
-            })        
+            })
 
             .catch((e) => {
                 this.showHideFeedback('error', e)
             });
 
 
+    }
+
+    handleAccept = (flagId) => {
+
+        if(this.state.confirmAccept !== true){
+            return;
+        }
+
+        this.setState({confirmAccept: null});
+
+        const user = userAuth();
+        const updateValue = {
+            flagstatus: 'resolved'
+        }
+        const apiEndpoint = `http://teamwork4andela.herokuapp.com/api/v1/posts/flags/${flagId}`;
+        const reqObj = {
+            method: 'PATCH',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-access-token': user.data.token
+            },
+            body: JSON.stringify(updateValue)
+        }
+        fetch(apiEndpoint, reqObj)
+            .then(response => response.json())
+            .then((data) => {
+                if (data.status === 'error') {
+                    this.showHideFeedback('error', data.message)
+                }
+               
+                this.showHideFeedback('success', data.data.message);
+
+            }).then(() => {
+                this.fetchFlaggedPosts();
+            })
+
+            .catch((e) => {
+                this.showHideFeedback('error', e)
+            });
+
+
+    }
+
+
+     handleConfirm = async (bool)=>{
+        await this.setState({ confirmDelete: bool, displayConfirm: false })
+
+        
+        if(!bool){
+            return;
+        }
+        if(bool){
+            this.handleDelete(this.state.deleteFlagId);
+        }
+        
+    }
+
+    handleAcceptConfirm = async (bool)=>{
+        await this.setState({ confirmAccept: bool, displayAcceptConfirm: false })
+
+        if(!bool){
+            return;
+        }
+        if(bool){
+            this.handleAccept(this.state.acceptFlagId);
+        }
+        
     }
     render() {
 
@@ -184,7 +266,8 @@ class Dashboard extends Component {
                 <FeedBackBox feedback={this.state.feedback} />
                 {this.state.redirect ? <Redirect to='/signin' /> : null}
 
-                <ConfirmBox text="Are you sure you want to delete this post?" redBtn="Yeah, sure!" whiteBtn="No, cancel" />
+                {this.state.displayConfirm && <ConfirmBox onRedBtn={() => this.handleConfirm(true)} onWhiteBtn={() => this.handleConfirm(false)} text="Are you sure you want to delete this post?" redBtn="Yeah, sure!" whiteBtn="No, cancel" />}
+                {this.state.displayAcceptConfirm && <ConfirmBox onRedBtn={() => this.handleAcceptConfirm(true)} onWhiteBtn={() => this.handleAcceptConfirm(false)} text="Are you sure you want to accept this post?" redBtn="Yeah, I know what I'm doing!" whiteBtn="No, cancel" />}
                 <Logo />
 
                 <div className="admin-dashboard-card">
@@ -206,24 +289,21 @@ class Dashboard extends Component {
                         {!this.state.noFlags && <div className="flagListHead">Articles</div>}
 
                         {
-                            !this.state.noFlags && this.state.flaggedArticles.map((flag, i) => <FlaggedPost key={i} onDelete={() => this.handleDelete(flag.flagid)} onSelect={() => this.handleArticleSelect(i)} title={flag.title} content={flag.articlebody} tag={flag.tag} />)
+                            !this.state.noFlags && this.state.flaggedArticles.map((flag, i) => <FlaggedPost key={i} onAccept={() => this.setState({displayAcceptConfirm: true, acceptFlagId: flag.flagid})}  onDelete={() => this.setState({displayConfirm: true, deleteFlagId: flag.flagid})} onSelect={() => this.handleArticleSelect(i)} title={flag.title} content={flag.articlebody} tag={flag.tag} />)
                         }
 
                         {!this.state.noFlags && <div className="flagListHead">Gifs</div>}
 
                         {
-                            !this.state.noFlags && this.state.flaggedGifs.map((flag, i) => <FlaggedPost key={i} onDelete={() => this.handleDelete(flag.flagid)} onSelect={() => this.handleGifSelect(i)} title={flag.title} content={flag.caption} />)
+                            !this.state.noFlags && this.state.flaggedGifs.map((flag, i) => <FlaggedPost key={i} onAccept={() => this.setState({displayAcceptConfirm: true, acceptFlagId: flag.flagid})} onDelete={() => this.setState({displayConfirm: true, deleteFlagId: flag.flagid})} onSelect={() => this.handleGifSelect(i)} title={flag.title} content={flag.caption} />)
                         }
                         {!this.state.noFlags && <div className="flagListHead">Comments</div>}
                         {
 
-                            !this.state.noFlags && this.state.flaggedComments.map((flag, i) => <FlaggedPost key={i} onDelete={() => this.handleDelete(flag.flagid)} onSelect={() => this.handleCommentSelect(i)} content={flag.commentBody} />)
+                            !this.state.noFlags && this.state.flaggedComments.map((flag, i) => <FlaggedPost key={i} onAccept={() => this.setState({displayAcceptConfirm: true, acceptFlagId: flag.flagid})} onDelete={() => this.setState({displayConfirm: true, deleteFlagId: flag.flagid})} onSelect={() => this.handleCommentSelect(i)} content={flag.commentBody} />)
                         }
 
-                        {/* <FlaggedPost />
-                        <FlaggedPost />
-                        <FlaggedPost /> */}
-
+                     
 
 
                     </div>

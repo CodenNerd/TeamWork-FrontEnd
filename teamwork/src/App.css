@@ -491,6 +491,7 @@ div.selected-flag{
   border-radius: 5px;
   padding: 5px 10px;
   float: right;
+  outline: none;
   margin: 10px;
 }
 .confirm-overlay>div .btn-div button:nth-child(1){
