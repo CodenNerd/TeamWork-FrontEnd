@@ -513,10 +513,25 @@ div.selected-flag{
 
 }
 /* 
-<div className="confirm-overlay">
-            <div>
-                {this.props.text}
-                <div className="btn-div"><button>{this.props.redBtn}</button> <button>{this.props.whiteBtn}</button></div>
-            </div>
-            </div> 
-*/
+/* Feed page started */
+
+div.nav-bar{
+  background: white;
+  padding: 10px 20px;
+  box-shadow: 1px 1px 5px grey;
+}
+
+.nav-bar .logo-grey{
+  top: 0px;
+}
+
+.nav-bar .so-btn{
+  position: relative;
+  left: 90%;
+  top: -10px;
+  background: purple;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
