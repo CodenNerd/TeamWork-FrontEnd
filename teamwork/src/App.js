@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import SignIn from './components/pages/signIn';
 import AdminDashboard from './components/pages/AdminDashboard';
 import AdminCreateUserAccount from './components/pages/AdminCreateUserAccount';
+import AdminFlags from "./components/pages/AdminFlags";
 
 // import PageNotFound from './components/pages/PageNotFound'
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Route exact path="/signin" component={SignIn} />
       <Route exact path="/admin/dashboard" component={AdminDashboard} />
       <Route exact path="/admin/dashboard/create-user" component={AdminCreateUserAccount} />
+      <Route exact path="/admin/dashboard/flags" component={AdminFlags} />
       {/* <Route component={PageNotFound} /> */}
       
     </Switch>

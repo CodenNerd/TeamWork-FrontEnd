@@ -84,6 +84,7 @@ body{
   padding: 15px 25px;
   animation: slide-in 1s ease-in-out both;
   display: inline-block;
+  z-index: +3000;
 }
 .error{
   color: rgb(153, 0, 0);
@@ -171,6 +172,7 @@ body{
   position: absolute;
   top: 0;
   left: 56%;
+  overflow: scroll;
 }
 .admin-dashboard-card .activity-div .nothing-hy{
   color: rgb(170, 170, 170);
@@ -368,3 +370,94 @@ body{
   margin: 200px auto;
   text-align: center;
 }
+
+/* Admin Flags Page */
+
+.flagged-post{
+  color: rgb(134, 123, 107);
+  padding: 10px 0px;
+  border: 1px solid lightgrey;
+  border-width: 1px 0px;
+  margin-top: 10px;
+  cursor: default;
+}
+.flagged-post:hover{
+  box-shadow: 4px -0px 3px grey;
+}
+.flagged-post .text-content{
+  padding: 2px;
+  /* border: 1px solid lightgrey; */
+  margin-bottom: 10px;
+  padding: 0px 30px;
+
+}
+.flagged-post .text-content h5{
+  margin: 0px;
+  margin-bottom: 0px;
+  padding: 2px;
+}
+.flagged-post .text-content p{
+  max-height: 20px;
+  overflow: hidden;
+  margin: 0px;
+  font-style: oblique;
+}
+.flagged-post .icons{
+  border-top: 1px dashed rgba(128, 0, 128, 0.294)
+}
+.flagged-post .tag, .selected-flag .tag{
+  display: inline-block;
+  padding: 3px 15px;
+  background: rgb(134, 123, 107);
+  color: lightgrey;
+  border-radius: 15px;
+  border: 1px solid rgb(134, 123, 107);
+  margin-top: 5px;
+}
+.flagged-post i{
+  float: right;
+  display: inline-block;
+  margin: 10px;
+}
+.flagged-post i.fa-trash-alt{
+  color: orangered;
+}
+.flagged-post i.fa-trash-alt:hover{
+  color: red;
+}
+.flagged-post i.fa-check{
+  color: green;
+  font-size: 20px;
+}
+.flagListHead{
+  color: rgb(197, 197, 197);
+  text-align: left;
+}
+
+div.selected-flag{
+  color: rgb(134, 123, 107);
+  width: 100%;
+  overflow-y: scroll;
+  padding: 20px 10px;
+}
+.selected-flag .title{
+  text-align: center;
+  font-weight: 100;
+  font-size: 30px;
+}
+.selected-flag .image{
+  width: 70%;
+  margin: 0px auto;
+}
+.selected-flag .image img{
+  width: 100%;
+}
+.selected-flag .content{
+  font-style: oblique;
+  text-align: center;
+}
+.selected-flag .date{
+  font-size: 10px;
+  padding: 1px 5px;
+}
+
