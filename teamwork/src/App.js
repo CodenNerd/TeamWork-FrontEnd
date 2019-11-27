@@ -6,6 +6,7 @@ import SignIn from './components/pages/signIn';
 import AdminDashboard from './components/pages/AdminDashboard';
 import AdminCreateUserAccount from './components/pages/AdminCreateUserAccount';
 import AdminFlags from "./components/pages/AdminFlags";
+import Feeds from './components/pages/Feeds';
 
 // import PageNotFound from './components/pages/PageNotFound'
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route exact path="/admin/dashboard" component={AdminDashboard} />
       <Route exact path="/admin/dashboard/create-user" component={AdminCreateUserAccount} />
       <Route exact path="/admin/dashboard/flags" component={AdminFlags} />
+      <Route exact path="/feed" component={Feeds} />
       {/* <Route component={PageNotFound} /> */}
       
     </Switch>
