@@ -461,3 +461,61 @@ div.selected-flag{
   padding: 1px 5px;
 }
 
+.confirm-overlay{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: rgba(221, 8, 8, 0.137);
+  z-index: +5000;
+}
+.confirm-overlay>div{
+  background: white;
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  animation: slide-in 1s ease-in-out;
+  padding: 30px;
+  padding-bottom: 0px;
+  font-weight: 100;
+  font-size: 20px;
+  border-radius: 5px;
+
+}
+.confirm-overlay>div .btn-div{
+  height: 20px;
+  border-top: 1px solid lightgrey;
+  margin-top: 10px;
+}
+.confirm-overlay>div .btn-div button{
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  float: right;
+  margin: 10px;
+}
+.confirm-overlay>div .btn-div button:nth-child(1){
+  background: rgb(230, 4, 4);
+  color: white;
+}
+.confirm-overlay>div .btn-div button:nth-child(1):hover{
+  background: rgb(252, 1, 1);
+}
+.confirm-overlay>div .btn-div button:nth-child(2){
+  background: white;
+  color: lightgrey;
+  border: 1px solid lightgrey;
+}
+.confirm-overlay>div .btn-div button:nth-child(2):hover{
+  background: lightgreen;
+  border: 1px solid lightgreen;
+  color: green;
+
+}
+/* 
+<div className="confirm-overlay">
+            <div>
+                {this.props.text}
+                <div className="btn-div"><button>{this.props.redBtn}</button> <button>{this.props.whiteBtn}</button></div>
+            </div>
+            </div> 
+*/

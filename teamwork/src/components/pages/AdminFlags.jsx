@@ -7,6 +7,7 @@ import Loader from './../Loader';
 import FeedBackBox from "./../FeedbackBox";
 import FlaggedPost from "./../FlaggedPost";
 import SelectedFlag from '../SelectedFlag';
+import ConfirmBox from './../ConfirmBox';
 
 class Dashboard extends Component {
     constructor(props) {
@@ -127,16 +128,52 @@ class Dashboard extends Component {
                 this.showHideFeedback('error', e)
             });
     }
-    handleArticleSelect = (i) =>{
-        this.setState({currentPost: this.state.flaggedArticles[i]});
+    handleArticleSelect = (i) => {
+        this.setState({ currentPost: this.state.flaggedArticles[i] });
     }
-    handleGifSelect = (i) =>{
-        this.setState({currentPost: this.state.flaggedGifs[i]});
+    handleGifSelect = (i) => {
+        this.setState({ currentPost: this.state.flaggedGifs[i] });
     }
-    handleCommentSelect = (i) =>{
-        this.setState({currentPost: this.state.flaggedComments[i]});
+    handleCommentSelect = (i) => {
+        this.setState({ currentPost: this.state.flaggedComments[i] });
     }
+    handleDelete = (flagId) => {
 
+        const user = userAuth();
+
+        const apiEndpoint = `http://teamwork4andela.herokuapp.com/api/v1/posts/flags/${flagId}`;
+        const reqObj = {
+            method: 'DELETE',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-access-token': user.data.token
+            },
+        }
+        console.log(user)
+        fetch(apiEndpoint, reqObj)
+            .then(response => response.json())
+            .then((data) => {
+                if (data.status === 'error') {
+                    this.showHideFeedback('error', data.message)
+                }
+                if (data.response) {
+                    if (data.response.deletePost)
+                        if (data.response.deletePost.status === 'success') {
+                            this.showHideFeedback('success', data.response.deletePost.message)
+                        }
+                }
+
+            }).then(()=>{
+                this.fetchFlaggedPosts();
+            })        
+
+            .catch((e) => {
+                this.showHideFeedback('error', e)
+            });
+
+
+    }
     render() {
 
 
@@ -146,6 +183,8 @@ class Dashboard extends Component {
                 <Loader show={this.state.loaderVisibility ? 'loader-div' : 'loader-hide'} />
                 <FeedBackBox feedback={this.state.feedback} />
                 {this.state.redirect ? <Redirect to='/signin' /> : null}
+
+                <ConfirmBox text="Are you sure you want to delete this post?" redBtn="Yeah, sure!" whiteBtn="No, cancel" />
                 <Logo />
 
                 <div className="admin-dashboard-card">
@@ -167,18 +206,18 @@ class Dashboard extends Component {
                         {!this.state.noFlags && <div className="flagListHead">Articles</div>}
 
                         {
-                            !this.state.noFlags && this.state.flaggedArticles.map((flag, i) => <FlaggedPost key={i} onSelect={()=>this.handleArticleSelect(i)} title={flag.title} content={flag.articlebody} tag={flag.tag} />)
+                            !this.state.noFlags && this.state.flaggedArticles.map((flag, i) => <FlaggedPost key={i} onDelete={() => this.handleDelete(flag.flagid)} onSelect={() => this.handleArticleSelect(i)} title={flag.title} content={flag.articlebody} tag={flag.tag} />)
                         }
 
                         {!this.state.noFlags && <div className="flagListHead">Gifs</div>}
 
                         {
-                            !this.state.noFlags && this.state.flaggedGifs.map((flag, i) => <FlaggedPost key={i} onSelect={()=>this.handleGifSelect(i)} title={flag.title} content={flag.caption} />)
+                            !this.state.noFlags && this.state.flaggedGifs.map((flag, i) => <FlaggedPost key={i} onDelete={() => this.handleDelete(flag.flagid)} onSelect={() => this.handleGifSelect(i)} title={flag.title} content={flag.caption} />)
                         }
                         {!this.state.noFlags && <div className="flagListHead">Comments</div>}
                         {
 
-                            !this.state.noFlags && this.state.flaggedComments.map((flag, i) => <FlaggedPost key={i} onSelect={()=>this.handleCommentSelect(i)} content={flag.commentBody} />)
+                            !this.state.noFlags && this.state.flaggedComments.map((flag, i) => <FlaggedPost key={i} onDelete={() => this.handleDelete(flag.flagid)} onSelect={() => this.handleCommentSelect(i)} content={flag.commentBody} />)
                         }
 
                         {/* <FlaggedPost />
@@ -189,8 +228,8 @@ class Dashboard extends Component {
 
                     </div>
                     <div className="activity-div">
-                        
-                        {this.state.currentPost? <SelectedFlag image={this.state.currentPost.imageurl} title={this.state.currentPost.title} content={this.state.currentPost.articlebody || this.state.currentPost.caption || this.state.currentPost.commentBody} date={this.state.currentPost.postdatetime} tag={this.state.currentPost.tag || 'none'}/>: <div className='nothing-hy'>Nothing here yet</div>}
+
+                        {this.state.currentPost ? <SelectedFlag image={this.state.currentPost.imageurl} title={this.state.currentPost.title} content={this.state.currentPost.articlebody || this.state.currentPost.caption || this.state.currentPost.commentBody} date={this.state.currentPost.postdatetime} tag={this.state.currentPost.tag || 'none'} /> : <div className='nothing-hy'>Nothing here yet</div>}
                     </div>
                 </div>
             </div>
