@@ -15,7 +15,7 @@ class Post extends Component {
                     <span className="tag">{this.props.tag}</span>
                     
                     <i onClick={this.props.onDelete} className="far fa-trash-alt"></i>
-                    <i onClick={this.props.onAllow} className="fas fa-check"></i>
+                    <i onClick={this.props.onAccept} className="fas fa-check"></i>
                 </div>
             </div>
          );
