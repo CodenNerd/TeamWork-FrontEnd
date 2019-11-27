@@ -73,8 +73,6 @@ class Feeds extends Component {
 
 
                 {/* 
-                    - verify user
-                    - tweak sign in to redirect here first
                     - design NAvBar
                 */}
                 <NavBar />
