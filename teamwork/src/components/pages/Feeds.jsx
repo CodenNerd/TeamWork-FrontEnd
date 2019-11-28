@@ -7,13 +7,16 @@ import { Redirect } from "react-router-dom";
 import Loader from "./../Loader";
 
 class Feeds extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.state = {
             feedback: [],
             loaderVisibility: true,
-            pinned: true
+            pinned: true,
+            userId: null,
+            userToken: null,
+            profile: null,
         }
     }
 
@@ -39,12 +42,14 @@ class Feeds extends Component {
         console.log(user)
         fetch(apiEndpoint, reqObj)
             .then(response => response.json())
-            .then((data) => {
+            .then(async (data) => {
                 if (data.status == "success" && data.data.userType == "employee") {
                     this.showLoader(false);
                     this.showHideFeedback('success', `Employee authenticated`)
+                    await this.setState({ userId: data.data.userId, userToken: user.data.token })
+                    this.fetchUserProfile();
                 }
-                else{
+                else {
                     this.setState({ redirect: true })
                 }
 
@@ -53,37 +58,66 @@ class Feeds extends Component {
                 this.showHideFeedback('error', e)
             });
 
-    }
 
-    showHideFeedback = (type, message) =>{
-        
-        this.setState({ feedback: [type, type, message ] })
-        setTimeout(h => this.setState({ feedback: [`${type} slide-out`, type, message]}), 1000);
-        
+
+    }
+    fetchUserProfile = () => {
+
+        const userId = this.state.userId;
+        const userToken = this.state.userToken;
+
+        const apiEndpoint = `http://teamwork4andela.herokuapp.com/api/v1/employees/${userId}`;
+        const reqObj = {
+            method: 'GET',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-access-token': userToken
+            },
+        }
+        fetch(apiEndpoint, reqObj)
+            .then(response => response.json())
+            .then((data) => {
+                if (data.status === "success") {
+                    this.setState({ profile: data.data })
+                }
+
+                console.log('data=>', data, 'profile =>', this.state.profile);
+            })
+            .catch((e) => {
+                this.showHideFeedback('error', e)
+            });
+
+    }
+    showHideFeedback = (type, message) => {
+
+        this.setState({ feedback: [type, type, message] })
+        setTimeout(h => this.setState({ feedback: [`${type} slide-out`, type, message] }), 1000);
+
     }
     showLoader = (value) => {
         return this.setState({ loaderVisibility: value })
     }
-    handlePin = () =>{
-        return this.setState({pinned: !this.state.pinned})
+    handlePin = () => {
+        return this.setState({ pinned: !this.state.pinned })
     }
 
-    render() { 
-        return ( 
+    render() {
+        return (
             <React.Fragment>
-                 {this.state.redirect ? <Redirect to='/admin/dashboard' /> : null}
+                {this.state.redirect ? <Redirect to='/admin/dashboard' /> : null}
 
                 <Loader show={this.state.loaderVisibility ? 'loader-div' : 'loader-hide'} />
 
 
                 {/* 
                 */}
-                <NavBar onPin={this.handlePin} pinned={this.state.pinned}/>
-               {this.state.pinned && <ProfileTab />}
+                <NavBar onPin={this.handlePin} pinned={this.state.pinned} />
+                {this.state.pinned && this.state.userId && this.state.userToken && this.state.profile && <ProfileTab userToken={this.state.userToken} userId={this.state.userId} firstname={this.state.profile.firstname} lastname={this.state.profile.lastname} email={this.state.profile.email} gender={this.state.profile.gender} address={this.state.profile.address} department={this.state.profile.department} jobRole={this.state.profile.jobrole} datetime={this.state.profile.datetime} />}
                 <FeedsBox />
             </React.Fragment>
-         );
+        );
     }
 }
- 
+
 export default Feeds;

@@ -583,8 +583,12 @@ div.nav-bar{
   float: right;
   position: relative;
   bottom: -25px;
-  transform: rotate(45deg);
+ transition:transform 0.2s;
 }
 .nav-bar .fas.fa-thumbtack.pinned{
-  color: purple;
+  color: purple; 
+  transform: rotate(45deg);
+}
+.online{
+  color: green;
 }
