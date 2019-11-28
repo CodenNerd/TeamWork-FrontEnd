@@ -615,7 +615,7 @@ div.nav-bar{
   grid-column: 2/60;
   padding: 10px 5%;
   border: 1px solid lightgrey;
-
+  background: rgba(204, 110, 199, 0.13);
 }
 .post-component button{
   background: lightgrey;
@@ -719,20 +719,21 @@ box-shadow: 1px 1px 5px grey;
   background-color: #fff;
 }
 .image-input{
-  width: 250px;
+  width: 240px;
   height: 180px;
   border: 1px solid;
   position: relative;
   /* float: left; */
-  left: -200px;
-  top: -150px;
+  left: 5px;
+  top: -170px;
   opacity: 0;
   display: inline-block;
   margin-bottom: -120px;
+  background: rgba(122, 4, 92, 0.692);
 }
 .post-gif-div{
-  /* position: absolute;
-  max-height: 200px; */
+   position: absolute;
+  /* max-height: 200px; */ 
 }
 .post-component i.fas.fa-camera{
   position: relative;

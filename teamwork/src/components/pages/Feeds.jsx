@@ -113,7 +113,7 @@ class Feeds extends Component {
                 <NavBar onPin={this.handlePin} pinned={this.state.pinned} />
                 {this.state.pinned && this.state.userId && this.state.userToken && this.state.profile && <ProfileTab userToken={this.state.userToken} userId={this.state.userId} firstname={this.state.profile.firstname} lastname={this.state.profile.lastname} email={this.state.profile.email} gender={this.state.profile.gender} address={this.state.profile.address} department={this.state.profile.department} jobRole={this.state.profile.jobrole} datetime={this.state.profile.datetime} />}
                 
-                <PostComponent />
+                <PostComponent userToken={this.state.userToken} userId={this.state.userId}  />
                 <FeedsBox />
                 </div>
             </React.Fragment>

@@ -5,10 +5,10 @@ class PostGif extends Component {
     render() { 
         return ( 
             <div  className="postgif-div">
-                <div id="textarea" className="article-body"> <textarea placeholder="Image Caption Here" name="" id="" rows="5"></textarea> </div>
+                <div id="textarea" className="article-body"> <textarea value={this.props.captionValue} onChange={(e)=>this.props.onCaptionChange(e)} placeholder="Image Caption Here" name="" id="" rows="5"></textarea> </div>
                 <i className="fas fa-camera"></i>
-                <input className="image-input" type="file" accept='image/gif'/>
-                <div className="article-title"> <input type="text" /><span>Title</span> </div>
+                <input value={this.props.gifImageValue} onChange={(e)=>this.props.onImageChange(e)} className="image-input" type="file" accept='image/gif'/>
+                <div className="article-title"> <input value={this.props.titleValue} onChange={(e)=>this.props.onTitleChange(e)} type="text" /><span>Title</span> </div>
             </div>
          );
     }
