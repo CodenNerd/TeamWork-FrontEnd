@@ -97,7 +97,10 @@ class PostComponent extends Component {
         else if (this.state.active === "gif") {
 
 
-
+            if(!this.state.gifImageValue){
+                this.showHideFeedback('error', 'Select an image');
+                return;
+            }
             let endpoint = `http://teamwork4andela.herokuapp.com/api/v1/gifs`
             let form_data = new FormData();
             form_data.append('image', this.state.gifImageValue, this.state.gifImageValue.name);
