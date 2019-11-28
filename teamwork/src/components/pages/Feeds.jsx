@@ -5,6 +5,7 @@ import FeedsBox from './../FeedsBox';
 import userAuth from "./../../Controllers/Auth";
 import { Redirect } from "react-router-dom";
 import Loader from "./../Loader";
+import PostComponent from './../PostComponent';
 
 class Feeds extends Component {
     constructor(props) {
@@ -105,16 +106,16 @@ class Feeds extends Component {
     render() {
         return (
             <React.Fragment>
+                <div className="body">
                 {this.state.redirect ? <Redirect to='/admin/dashboard' /> : null}
-
                 <Loader show={this.state.loaderVisibility ? 'loader-div' : 'loader-hide'} />
-
-
-                {/* 
-                */}
+                
                 <NavBar onPin={this.handlePin} pinned={this.state.pinned} />
                 {this.state.pinned && this.state.userId && this.state.userToken && this.state.profile && <ProfileTab userToken={this.state.userToken} userId={this.state.userId} firstname={this.state.profile.firstname} lastname={this.state.profile.lastname} email={this.state.profile.email} gender={this.state.profile.gender} address={this.state.profile.address} department={this.state.profile.department} jobRole={this.state.profile.jobrole} datetime={this.state.profile.datetime} />}
+                
+                <PostComponent userToken={this.state.userToken} userId={this.state.userId}  />
                 <FeedsBox />
+                </div>
             </React.Fragment>
         );
     }
