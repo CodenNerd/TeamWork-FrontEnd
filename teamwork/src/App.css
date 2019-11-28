@@ -519,6 +519,12 @@ div.nav-bar{
   background: white;
   padding: 10px 20px;
   box-shadow: 1px 1px 5px grey;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  margin-bottom: 100px;
+  z-index: +5;
 }
 
 .nav-bar .logo-grey{
@@ -569,7 +575,8 @@ div.nav-bar{
   border: 1px solid lightgrey;
   font-size: 14px;
   background: lightyellow;
-  font-style: italic
+  font-style: italic;
+  z-index: +3;
 }
 .profile-tab ul{
   display: inline-block;
@@ -760,4 +767,81 @@ div.body::-webkit-scrollbar-thumb {
 }
 #picked{
   background-color: orangered;
+}
+
+/* Feeds styling */
+
+/* <div >
+<div className="feed-head">
+<span>Atanda AbdulAzeez</span>
+
+<i className="fas fa-pencil-alt"></i>
+<i className="fas fa-trash"></i>
+</div>
+<div className="feed-body">
+This is my stooooooriiiy, this is my soooong!
+</div>
+<div className="feed-icons">
+    <i className="far fa-heart"></i> <i className="far fa-comments"></i> <i className="fas fa-share"></i> <i className="far fa-flag"></i>            
+</div>
+</div>  */
+
+.feed-box{
+  background-color: #fff;
+  width: 60%;
+  min-height: 100px;
+  border: 1px solid lightgray;
+  margin: 0px auto;
+  padding: 10px 20px;
+  /* box-shadow: 1px 1px 6px grey; */
+  color: purple;
+  margin: 5px auto;
+}
+.feed-box .feed-head i{
+  float: right;
+  margin: 10px;
+}
+.feed-box .feed-head i.fa-trash{
+  color: orangered;
+}
+.feed-box .feed-head i.fa-pencil-alt{
+  color: dimgrey
+}
+.feed-box .feed-head{
+  height: 30px;
+  border-bottom: 1px solid lightgrey;
+  vertical-align: bottom;
+}
+.feed-box .feed-head span{
+  font-weight: bolder;
+}
+.feed-box .feed-head span i.fa-circle{
+  float: none;
+  font-size: 10px;
+  display: inline-block;
+  margin: 5px 10px;
+}
+.feed-box .feed-body{
+  max-height: 100px;
+  color: grey;
+  padding: 0px 15px;
+}
+.feed-box .feed-icons i{
+  font-size: 20px;
+  margin: 10px;
+}
+
+.feed-box .feed-icons i.fa-heart{
+  color: red;
+}
+.feed-image{
+  width: 80%;
+  margin: 0px auto;
+}
+.feed-image img{
+  width: 100%;
+}
+div.body{
+  padding-bottom: 30px;
+  padding-top: 87px;
 }

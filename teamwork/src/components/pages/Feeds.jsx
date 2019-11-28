@@ -18,6 +18,7 @@ class Feeds extends Component {
             userId: null,
             userToken: null,
             profile: null,
+            feed: []
         }
     }
 
@@ -49,6 +50,7 @@ class Feeds extends Component {
                     this.showHideFeedback('success', `Employee authenticated`)
                     await this.setState({ userId: data.data.userId, userToken: user.data.token })
                     this.fetchUserProfile();
+                    this.fetchFeed();
                 }
                 else {
                     this.setState({ redirect: true })
@@ -59,8 +61,10 @@ class Feeds extends Component {
                 this.showHideFeedback('error', e)
             });
 
+    }
 
-
+    componentDidMount = () =>{
+        
     }
     fetchUserProfile = () => {
 
@@ -103,6 +107,31 @@ class Feeds extends Component {
         return this.setState({ pinned: !this.state.pinned })
     }
 
+    fetchFeed = () =>{
+        const userToken = this.state.userToken;
+
+        const apiEndpoint = `http://teamwork4andela.herokuapp.com/api/v1/feed`;
+        const reqObj = {
+            method: 'GET',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-access-token': userToken
+            },
+        }
+        fetch(apiEndpoint, reqObj)
+            .then(response => response.json())
+            .then((data) => {
+                if (data.status === "success") {
+                    this.setState({ feed: data.data })
+                }
+
+                console.log('feed data=>', data, 'profile =>', this.state.feed);
+            })
+            .catch((e) => {
+                this.showHideFeedback('error', e)
+            });
+    }
     render() {
         return (
             <React.Fragment>
@@ -111,9 +140,16 @@ class Feeds extends Component {
                 <Loader show={this.state.loaderVisibility ? 'loader-div' : 'loader-hide'} />
                 
                 <NavBar onPin={this.handlePin} pinned={this.state.pinned} />
+                   
                 {this.state.pinned && this.state.userId && this.state.userToken && this.state.profile && <ProfileTab userToken={this.state.userToken} userId={this.state.userId} firstname={this.state.profile.firstname} lastname={this.state.profile.lastname} email={this.state.profile.email} gender={this.state.profile.gender} address={this.state.profile.address} department={this.state.profile.department} jobRole={this.state.profile.jobrole} datetime={this.state.profile.datetime} />}
                 
                 <PostComponent userToken={this.state.userToken} userId={this.state.userId}  />
+                <br/> <br/> <br/>
+
+
+                <FeedsBox />
+                <FeedsBox />
+                <FeedsBox />
                 <FeedsBox />
                 </div>
             </React.Fragment>
