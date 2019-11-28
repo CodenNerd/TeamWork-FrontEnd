@@ -7,10 +7,26 @@ class PostComponent extends Component {
         super(props);
 
         this.state = {
-            active: 'article'
+            active: 'article',
+            titleValue: null,
+            bodyValue: null,
+            textTag: null
         }
     }
 
+    handleTag = (text) =>{
+        console.log(text,'///')
+        this.setState({textTag: text});
+        console.log(this.state);
+    }
+    handleBodyChange = (event) =>{
+        this.setState({bodyValue: event.target.value});
+        console.log(this.state);
+    }
+    handleTitleChange =  (event) =>{
+        this.setState({titleValue: event.target.value});
+        console.log(this.state.titleValue,'[][][][]', this.state.bodyValue);
+    }
     render() {
         return (
             <div className="post-component">
@@ -24,7 +40,7 @@ class PostComponent extends Component {
                     <button className="publish-btn">Publish</button>
                 </div>
                 <div className="fields-div">
-                    {this.state.active==='article' && <PostArticle />}
+                    {this.state.active==='article' && <PostArticle onBodyChange={(e)=>this.handleBodyChange(e)} onTitleChange={(e)=>this.handleTitleChange(e)} pickedTag={this.state.textTag} onTag={(text)=>this.handleTag(text)} titleValue={this.state.titleValue} bodyValue={this.state.bodyValue} />}
                     {this.state.active==='gif' && <PostGif />}
                 </div>
             </div>

@@ -757,3 +757,6 @@ div.body::-webkit-scrollbar-thumb {
   float: right;
   margin: 30px 5%;
 }
+#picked{
+  background-color: orangered;
+}
