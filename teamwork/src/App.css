@@ -592,3 +592,96 @@ div.nav-bar{
 .online{
   color: green;
 }
+.post-component{
+  width: 70%;
+  /* background: rgba(128, 128, 128, 0.055); */
+  /* border: 1px solid lightgrey; */
+  margin: 5px auto;
+  display: grid;
+}
+
+.post-component .post-text{
+  color: purple;
+  grid-column: 1/2;
+  font-weight: bolder;
+  padding-top: 35px;
+}
+.post-component .buttons-tab{
+  grid-row: 1/2;
+  grid-column: 2/60;
+  padding: 10px 10%;
+}
+.post-component .fields-div{
+  grid-column: 2/60;
+  padding: 0px 10%;
+}
+.post-component button{
+  background: lightgrey;
+  padding: 10px 25px;
+  border: none;
+  margin: 10px;
+  border-radius: 5px;
+  outline: none;
+}
+.post-component button.publish-btn{
+  background-color: purple;
+  color: white;
+  float: right;
+  
+}
+.post-component button.publish-btn:hover{
+box-shadow: 1px 1px 5px grey;
+}
+.post-component button.article-btn, 
+.post-component button.gif-btn{
+  border-radius: 25px;
+}
+.post-component .post-article div{
+  margin: 5px auto;
+ }
+.post-component .post-article .article-title input{
+  width: 70%;
+  min-height: 30px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: 1px solid lightgrey;
+  padding-left: 100px;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: PoppinsThin;
+  color: grey;
+}
+.post-component .post-article .article-title input:focus{
+  outline: 4px double rgba(211, 211, 211, 0.472);
+}
+.post-component .post-article .article-body textarea:focus{
+  outline: 4px double rgba(211, 211, 211, 0.472);
+}
+.post-component .post-article .article-title span{
+  display: inline-block;
+  padding: 6px 30px;
+  position: relative;
+  color: purple;
+  top: 0px;
+  left: -70%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-right: 4px double lightgrey;
+  box-shadow: 0px 0px 5px lightgrey inset;
+}
+.post-component .post-article .article-body textarea{
+  width: 100%;
+  resize: none;
+  border: 1px solid lightgrey;
+  box-shadow: 0px 0px 5px lightgrey inset;
+  font-family: PoppinsThin;
+  color: grey;
+  font-weight: 500;
+  font-size: 20px;
+}
+.category .tag{
+  display: inline-block;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: rgb(0, 124, 128);
+}

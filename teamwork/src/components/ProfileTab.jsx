@@ -40,7 +40,7 @@ class ProfileTab extends Component {
                     <li>{this.props.jobRole}</li>
                     <li>{this.props.department} Department</li>
                     <li>{this.props.gender}</li>
-                    <li className={this.state.conn ==="Online" ? "online": ""}><i className="fas fa-circle"></i>{this.state.conn}</li>
+                    <li className={this.state.conn ==="Online" ? "online": ""}><i className="fas fa-circle"></i> {this.state.conn}</li>
                 </ul>
            
             </div>
