@@ -643,8 +643,8 @@ box-shadow: 1px 1px 5px grey;
   margin: 5px auto;
   
  }
-.post-component .post-article .article-title input{
-  width: 70%;
+.post-component .article-title input{
+  width: 100%;
   min-height: 30px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -655,25 +655,25 @@ box-shadow: 1px 1px 5px grey;
   font-family: PoppinsThin;
   color: grey;
 }
-.post-component .post-article .article-title input:focus{
+.post-component .article-title input:focus{
   outline: 4px double rgba(211, 211, 211, 0.472);
 }
 .post-component .post-article .article-body textarea:focus{
   outline: 4px double rgba(211, 211, 211, 0.472);
 }
-.post-component .post-article .article-title span{
+.post-component .article-title span{
   display: inline-block;
   padding: 6px 30px;
   position: relative;
   color: purple;
-  top: 0px;
-  left: -70%;
+  top: -34px;
+  left: 0%;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   border-right: 4px double lightgrey;
   box-shadow: 0px 0px 5px lightgrey inset;
 }
-.post-component .post-article .article-body textarea{
+.post-component .article-body textarea{
   width: 100%;
   resize: none;
   border: 1px solid lightgrey;
@@ -693,14 +693,12 @@ box-shadow: 1px 1px 5px grey;
   font-size: 10px;
   cursor: pointer;
 }
-::-webkit-scrollbar {
-  width: 3px;
-}
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 
-::-webkit-scrollbar-thumb {
+.post-component .category::-webkit-scrollbar-thumb {
   background: white;
   border: 1px solid lightgrey;
   border-radius: 10px;
@@ -719,4 +717,43 @@ box-shadow: 1px 1px 5px grey;
   color: purple;
   border: 4px solid grey;
   background-color: #fff;
+}
+.image-input{
+  width: 250px;
+  height: 180px;
+  border: 1px solid;
+  position: relative;
+  /* float: left; */
+  left: -200px;
+  top: -150px;
+  opacity: 0;
+  display: inline-block;
+  margin-bottom: -120px;
+}
+.post-gif-div{
+  /* position: absolute;
+  max-height: 200px; */
+}
+.post-component i.fas.fa-camera{
+  position: relative;
+  top: 0px;
+  left:20px;
+  display: inline-block;
+  font-size: 200px;
+  color: grey;
+  margin-bottom: -120px;
+}
+div.body{
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+}
+div.body::-webkit-scrollbar-thumb {
+  background: purple;
+}
+
+#textarea{
+  width: 40%;
+  float: right;
+  margin: 30px 5%;
 }

@@ -106,6 +106,7 @@ class Feeds extends Component {
     render() {
         return (
             <React.Fragment>
+                <div className="body">
                 {this.state.redirect ? <Redirect to='/admin/dashboard' /> : null}
                 <Loader show={this.state.loaderVisibility ? 'loader-div' : 'loader-hide'} />
                 
@@ -114,6 +115,7 @@ class Feeds extends Component {
                 
                 <PostComponent />
                 <FeedsBox />
+                </div>
             </React.Fragment>
         );
     }
