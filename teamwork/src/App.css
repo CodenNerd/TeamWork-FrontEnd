@@ -613,7 +613,9 @@ div.nav-bar{
 }
 .post-component .fields-div{
   grid-column: 2/60;
-  padding: 0px 10%;
+  padding: 10px 5%;
+  border: 1px solid lightgrey;
+
 }
 .post-component button{
   background: lightgrey;
@@ -623,6 +625,7 @@ div.nav-bar{
   border-radius: 5px;
   outline: none;
 }
+
 .post-component button.publish-btn{
   background-color: purple;
   color: white;
@@ -638,6 +641,7 @@ box-shadow: 1px 1px 5px grey;
 }
 .post-component .post-article div{
   margin: 5px auto;
+  
  }
 .post-component .post-article .article-title input{
   width: 70%;
@@ -679,9 +683,40 @@ box-shadow: 1px 1px 5px grey;
   font-weight: 500;
   font-size: 20px;
 }
-.category .tag{
-  display: inline-block;
-  padding: 10px;
+.post-component .category .tag{
+  display: inline;
+  padding: 5px;
   border-radius: 20px;
-  background-color: rgb(0, 124, 128);
+  color: white;
+  background-color: grey;
+  margin: 55px 10px;
+  font-size: 10px;
+  cursor: pointer;
+}
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: white;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+}
+
+.post-component .category{
+  width: 100%;
+  max-width: 700px;
+  height: 60px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding: 5px;
+   
+}
+#post-active{
+  color: purple;
+  border: 4px solid grey;
+  background-color: #fff;
 }
