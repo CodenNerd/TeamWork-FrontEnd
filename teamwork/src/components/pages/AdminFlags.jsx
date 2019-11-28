@@ -36,9 +36,7 @@ class Dashboard extends Component {
             acceptFlagId: null
         }
 
-
-
-    }
+}
 
 
 

@@ -26,7 +26,7 @@ class Form extends Component {
         const user = userAuth();
     if(user){
        if (user.data) {
-           if (user.data.token) this.setState({redirect: true, user: "admin"})
+           if (user.data.token) this.setState({redirect: true, user: "employee"})
        }
     }
 }
@@ -86,7 +86,7 @@ class Form extends Component {
 
         if (status==="success"){ 
             userAuth(data);
-            setTimeout(a=>this.setState({redirect: true, user: "admin"}), 2000); // or employee
+            setTimeout(a=>this.setState({redirect: true, user: "employee"}), 2000); // or employee
         }else{
             return;
         };
@@ -130,7 +130,7 @@ class Form extends Component {
     render() {
         return (
             <React.Fragment>
-                {this.state.redirect && this.state.user==="admin"? <Redirect to="/admin/dashboard/create-user" />: null }
+                {this.state.redirect && this.state.user==="employee"? <Redirect to="/feed" />: null }
                 {/* null should redirect to employee page */}
                 <FeedBackBox feedback={this.state.feedback} />
                 <Loader show={this.state.loaderVisibility ? 'loader-div' : 'loader-hide'} />
