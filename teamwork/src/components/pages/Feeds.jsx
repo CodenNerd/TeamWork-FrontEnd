@@ -63,9 +63,7 @@ class Feeds extends Component {
 
     }
 
-    componentDidMount = () =>{
-        
-    }
+    
     fetchUserProfile = () => {
 
         const userId = this.state.userId;
