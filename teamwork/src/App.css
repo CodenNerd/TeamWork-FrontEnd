@@ -563,3 +563,28 @@ div.nav-bar{
   background: rgb(128, 0, 128);
   color: white;
 }
+
+.profile-tab{
+  padding: 10px;
+  border: 1px solid lightgrey;
+  font-size: 14px;
+  background: lightyellow;
+  font-style: italic
+}
+.profile-tab ul{
+  display: inline-block;
+  margin: 5px 15px;
+  color: grey;
+  list-style-type: none;
+}
+.nav-bar .fas.fa-thumbtack{
+  color: grey;
+  font-size: 10px;
+  float: right;
+  position: relative;
+  bottom: -25px;
+  transform: rotate(45deg);
+}
+.nav-bar .fas.fa-thumbtack.pinned{
+  color: purple;
+}

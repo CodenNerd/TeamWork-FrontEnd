@@ -11,7 +11,7 @@ class NavBar extends Component {
             <Logo />
             <SearchBar />
             <SignOutBtn />
-
+            <i onClick={this.props.onPin} className={this.props.pinned ? "fas fa-thumbtack pinned":"fas fa-thumbtack" }></i>
         </div> );
     }
 }

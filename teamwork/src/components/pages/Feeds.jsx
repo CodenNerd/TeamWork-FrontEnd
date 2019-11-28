@@ -12,7 +12,8 @@ class Feeds extends Component {
 
         this.state = {
             feedback: [],
-            loaderVisibility: true
+            loaderVisibility: true,
+            pinned: true
         }
     }
 
@@ -63,6 +64,9 @@ class Feeds extends Component {
     showLoader = (value) => {
         return this.setState({ loaderVisibility: value })
     }
+    handlePin = () =>{
+        return this.setState({pinned: !this.state.pinned})
+    }
 
     render() { 
         return ( 
@@ -73,10 +77,9 @@ class Feeds extends Component {
 
 
                 {/* 
-                    - design NAvBar
                 */}
-                <NavBar />
-                <ProfileTab />
+                <NavBar onPin={this.handlePin} pinned={this.state.pinned}/>
+               {this.state.pinned && <ProfileTab />}
                 <FeedsBox />
             </React.Fragment>
          );
