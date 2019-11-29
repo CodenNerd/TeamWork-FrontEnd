@@ -15,7 +15,7 @@ class FeedBox extends Component {
             <h5>{this.props.title}</h5>
             {this.props.content}
 
-           {this.props.tag && <span className="tag">{this.props.tag}</span>}
+           
             </div>
             {/* if there's image, put image ... and tag too*/}
            { this.props.imgSrc && <div className="feed-image">
@@ -23,7 +23,8 @@ class FeedBox extends Component {
             </div>}
             <div className="feed-icons">
                 <i className="far fa-heart"></i> <i className="far fa-comments"></i> <i className="fas fa-share"></i> <i className="far fa-flag"></i>            
-            </div>
+           {this.props.tag && <span className="tag">{this.props.tag}</span>} 
+           </div>
         </div> 
     );
     }
