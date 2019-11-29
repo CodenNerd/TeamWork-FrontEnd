@@ -6,21 +6,21 @@ class FeedBox extends Component {
         return ( 
         <div className="feed-box">
             <div className="feed-head">
-            <span> <i className="fas fa-circle"></i> Atanda AbdulAzeez</span>
+            <span> <i className="fas fa-circle"></i> {this.props.author}</span>
 
-            <i className="fas fa-trash"></i>
-            <i className="fas fa-pencil-alt"></i>
+           {this.props.isAuthor && ( <i className="fas fa-trash"></i>) }
+        {this.props.isAuthor &&  <i className="fas fa-pencil-alt"></i> }
             </div>
             <div className="feed-body">
-            <h5>This is my title</h5>
-            This is my stooooooriiiy, this is my soooong! or caption
+            <h5>{this.props.title}</h5>
+            {this.props.content}
 
-            <span className="tag">tag</span>
+           {this.props.tag && <span className="tag">{this.props.tag}</span>}
             </div>
             {/* if there's image, put image ... and tag too*/}
-            <div className="feed-image">
-                <img src="https://res.cloudinary.com/codennerd/image/upload/v1574966678/xjxf9hssndneyms2jz9b.png" alt=""/>
-            </div>
+           { this.props.imgSrc && <div className="feed-image">
+                <img src={this.props.imgSrc} alt="GIF"/>
+            </div>}
             <div className="feed-icons">
                 <i className="far fa-heart"></i> <i className="far fa-comments"></i> <i className="fas fa-share"></i> <i className="far fa-flag"></i>            
             </div>

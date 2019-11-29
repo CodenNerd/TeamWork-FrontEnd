@@ -822,15 +822,20 @@ This is my stooooooriiiy, this is my soooong!
   margin: 5px 10px;
 }
 .feed-box .feed-body{
-  max-height: 100px;
+  max-height: 150px;
   color: grey;
   padding: 0px 15px;
+  text-align: justify;
+  text-overflow: ellipsis ;
+  overflow: hidden;
 }
 .feed-box .feed-icons i{
   font-size: 20px;
   margin: 10px;
 }
-
+.feed-box .feed-icons{
+  height: 30px;
+}
 .feed-box .feed-icons i.fa-heart{
   color: red;
 }
@@ -840,6 +845,15 @@ This is my stooooooriiiy, this is my soooong!
 }
 .feed-image img{
   width: 100%;
+}
+
+.feed-box .tag{
+  background-color: darkgoldenrod;
+  color: white;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  float: right;
 }
 div.body{
   padding-bottom: 30px;
