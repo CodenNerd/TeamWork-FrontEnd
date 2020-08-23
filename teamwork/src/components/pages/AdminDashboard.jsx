@@ -45,7 +45,7 @@ class Dashboard extends Component {
         if (!user.data.token) return this.setState({ redirect: true });
 
         this.showLoader(true);
-        const apiEndpoint = `http://teamwork4andela.herokuapp.com/api/v1/user`;
+        const apiEndpoint = `https://teamwork4andela.herokuapp.com/api/v1/user`;
         const reqObj = {
             method: 'GET',
             mode: 'cors',

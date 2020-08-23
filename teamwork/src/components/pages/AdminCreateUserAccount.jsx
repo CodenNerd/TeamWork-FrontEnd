@@ -134,7 +134,7 @@ class SignUp extends Component {
         const user = userAuth();
 
         this.showLoader(true);
-        const apiEndpoint = `http://teamwork4andela.herokuapp.com/api/v1/auth/create-user`;
+        const apiEndpoint = `https://teamwork4andela.herokuapp.com/api/v1/auth/create-user`;
         const reqObj = {
             method: 'POST',
             mode: 'cors', 
@@ -186,7 +186,7 @@ class SignUp extends Component {
         if (!user.data.token) return this.setState({ redirect: true });
 
         this.showLoader(true);
-        const apiEndpoint = `http://teamwork4andela.herokuapp.com/api/v1/user`;
+        const apiEndpoint = `https://teamwork4andela.herokuapp.com/api/v1/user`;
         const reqObj = {
             method: 'GET',
             mode: 'cors',

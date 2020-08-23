@@ -34,7 +34,7 @@ class Feeds extends Component {
         if (!user.data.token) return this.setState({ redirect: true });
 
         this.showLoader(true);
-        const apiEndpoint = `http://teamwork4andela.herokuapp.com/api/v1/user`;
+        const apiEndpoint = `https://teamwork4andela.herokuapp.com/api/v1/user`;
         const reqObj = {
             method: 'GET',
             mode: 'cors',
@@ -82,7 +82,7 @@ class Feeds extends Component {
         const userId = this.state.userId;
         const userToken = this.state.userToken;
 
-        const apiEndpoint = `http://teamwork4andela.herokuapp.com/api/v1/employees/${userId}`;
+        const apiEndpoint = `https://teamwork4andela.herokuapp.com/api/v1/employees/${userId}`;
         const reqObj = {
             method: 'GET',
             mode: 'cors',
@@ -121,7 +121,7 @@ class Feeds extends Component {
     fetchFeed = () => {
         const userToken = this.state.userToken;
 
-        const apiEndpoint = `http://teamwork4andela.herokuapp.com/api/v1/feed`;
+        const apiEndpoint = `https://teamwork4andela.herokuapp.com/api/v1/feed`;
         const reqObj = {
             method: 'GET',
             mode: 'cors',
@@ -147,7 +147,7 @@ class Feeds extends Component {
 
     fetchAuthor = (authorId, i) => {
         const userToken = this.state.userToken;
-        const apiEndpoint = `http://teamwork4andela.herokuapp.com/api/v1/employees/${authorId}`;
+        const apiEndpoint = `https://teamwork4andela.herokuapp.com/api/v1/employees/${authorId}`;
         const reqObj = {
             method: 'GET',
             mode: 'cors',

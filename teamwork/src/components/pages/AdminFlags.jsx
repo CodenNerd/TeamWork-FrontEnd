@@ -56,7 +56,7 @@ class Dashboard extends Component {
         if (!user.data.token) return this.setState({ redirect: true });
 
         this.showLoader(true);
-        const apiEndpoint = `http://teamwork4andela.herokuapp.com/api/v1/user`;
+        const apiEndpoint = `https://teamwork4andela.herokuapp.com/api/v1/user`;
         const reqObj = {
             method: 'GET',
             mode: 'cors',
@@ -103,7 +103,7 @@ class Dashboard extends Component {
 
     fetchFlaggedPosts = () => {
         const user = userAuth();
-        const apiEndpoint = `http://teamwork4andela.herokuapp.com/api/v1/posts/flags`;
+        const apiEndpoint = `https://teamwork4andela.herokuapp.com/api/v1/posts/flags`;
         const reqObj = {
             method: 'GET',
             mode: 'cors',
@@ -154,7 +154,7 @@ class Dashboard extends Component {
 
         const user = userAuth();
 
-        const apiEndpoint = `http://teamwork4andela.herokuapp.com/api/v1/posts/flags/${flagId}`;
+        const apiEndpoint = `https://teamwork4andela.herokuapp.com/api/v1/posts/flags/${flagId}`;
         const reqObj = {
             method: 'DELETE',
             mode: 'cors',
@@ -199,7 +199,7 @@ class Dashboard extends Component {
         const updateValue = {
             flagstatus: 'resolved'
         }
-        const apiEndpoint = `http://teamwork4andela.herokuapp.com/api/v1/posts/flags/${flagId}`;
+        const apiEndpoint = `https://teamwork4andela.herokuapp.com/api/v1/posts/flags/${flagId}`;
         const reqObj = {
             method: 'PATCH',
             mode: 'cors',

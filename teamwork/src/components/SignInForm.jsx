@@ -93,7 +93,7 @@ class Form extends Component {
     }
     submitSignIn = (credentials) => {
         this.showLoader(true);
-        const apiEndpoint = `http://teamwork4andela.herokuapp.com/api/v1/auth/signin`;
+        const apiEndpoint = `https://teamwork4andela.herokuapp.com/api/v1/auth/signin`;
         const reqObj = {
             method: 'POST',
             mode: 'cors', // no-cors, *cors, same-origin

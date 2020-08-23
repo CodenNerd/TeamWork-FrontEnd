@@ -2,7 +2,6 @@
   "name": "teamwork",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://codennerd.github.io/TeamWork-FrontEnd/",
   "dependencies": {
     "gh-pages": "^2.1.1",
     "react": "^16.12.0",

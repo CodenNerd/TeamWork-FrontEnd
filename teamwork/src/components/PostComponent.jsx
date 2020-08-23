@@ -82,7 +82,7 @@ class PostComponent extends Component {
                 content: this.state.bodyValue,
                 tag: this.state.textTag
             }
-            const endpoint = `http://teamwork4andela.herokuapp.com/api/v1/articles`
+            const endpoint = `https://teamwork4andela.herokuapp.com/api/v1/articles`
             const reqObj = {
                 method: 'POST',
                 mode: 'cors',
@@ -101,7 +101,7 @@ class PostComponent extends Component {
                 this.showHideFeedback('error', 'Select an image');
                 return;
             }
-            let endpoint = `http://teamwork4andela.herokuapp.com/api/v1/gifs`
+            let endpoint = `https://teamwork4andela.herokuapp.com/api/v1/gifs`
             let form_data = new FormData();
             form_data.append('image', this.state.gifImageValue, this.state.gifImageValue.name);
             form_data.append('title', this.state.gifTitleValue);
